@@ -10,15 +10,14 @@ class stockage {
   }
   draw() {
     ctx.fillRect(this.x, this.y, 20, 50);
-    ctx.fillText(this.capacite, this.x+25,this.y);
+    ctx.fillText(this.nbBall+"/"+this.capacite, this.x+25,this.y);
   }
 
   addBall(ball)
   {
     this.tabBall[this.nbBall]=ball;
     this.nbBall+=1;
-    this.capacite-=1;
-    if(this.capacite==0)
+    if(this.nbBall>this.capacite)
     {
       this.sortir();
     }
@@ -29,9 +28,7 @@ class stockage {
   {
     this.objS.addBall(this.tabBall[0]);
    
-
     this.tabBall.shift();
     this.nbBall-=1;
-    this.capacite+=1;
   }
 }
