@@ -21,6 +21,7 @@ class stockage {
     {
       this.sortir();
     }
+    
     this.draw();
   }
 
