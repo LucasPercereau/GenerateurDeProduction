@@ -1,12 +1,12 @@
 class convoyeur {
 
-  constructor(posX,posY,largeur,hauteur,convoyeurS) {
+  constructor(posX,posY,largeur,hauteur,objS) {
     this.hauteur = hauteur;
     this.largeur = largeur;
     this.x=posX;
    	this.y=posY;
    	this.tabBall=[];
-   	this.ConvoyeurS = convoyeurS;
+   	this.objS = objS;
   }
   draw(color) {
   	ctx.fillStyle = color;
@@ -26,14 +26,14 @@ class convoyeur {
   {
   	let m_x = this.x;
   	let m_largeur = this.largeur;
-  	let alaid = this.ConvoyeurS;
+  	let conv = this.objS;
   	var self = this;
   	this.tabBall.forEach(function Coord(e){
   		if(e.x>=m_x+m_largeur)
   		{
-  			if(alaid!=null)
+  			if(conv!=null)
   			{
-  				alaid.addBall(e); 
+  				conv.addBall(e); 
   				self.delBall();		
   			}
   			else
