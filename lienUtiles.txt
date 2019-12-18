@@ -1,0 +1,7 @@
+https://stackoverflow.com/questions/11625917/sending-a-string-like-json-from-c-sharp-to-javascriptb
+
+gdi+
+
+WPF 
+
+https://github.com/LucasPerc/GenerateurDeProduction
