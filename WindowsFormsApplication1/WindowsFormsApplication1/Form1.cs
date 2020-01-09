@@ -21,7 +21,8 @@ namespace WindowsFormsApplication1
         private string CaseDraw = "Ligne";
         private Grille _grille;
         private int tailleGrille;
-    
+        private bool _noise;
+
         public Form1()
         {
             InitializeComponent();
@@ -95,15 +96,28 @@ namespace WindowsFormsApplication1
             pictureBox1.Invalidate();
         }
 
-        //Dessin de la fenetre
+        /// <summary>
+        /// Dessin de la fenetre
+        /// </summary>
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
-        {
-            UpdateList(_grille.LesElements);
+        {         
             paintGrid(e);
             foreach (Element el in _grille.LesElements)
             {
                 setToGrid(el);
-                Pen LinePen = new Pen(Color.FromArgb(255, 255, 0, 0), 3);
+                Pen LinePen = null;
+                SolidBrush Brush = null;
+                if (el.isSelected)
+                {
+                    LinePen = new Pen(Color.FromArgb(0, 0, 255, 0), 3);
+                    Brush = new SolidBrush(Color.Blue);
+                }
+                else
+                {
+                    LinePen = new Pen(Color.FromArgb(255, 255, 0, 0), 3);
+                    Brush = new SolidBrush(Color.Red);
+                }
+                
                 if (el is Ligne)
                 {
                     Ligne l = (Ligne)el;              
@@ -111,7 +125,7 @@ namespace WindowsFormsApplication1
                 }
                 if(el is Machine)
                 {
-                    e.Graphics.DrawRectangle(LinePen, el.xGrid*_grille.tailleCellule + _grille.tailleCellule / 2, el.yGrid* _grille.tailleCellule + _grille.tailleCellule / 2, 10, 10);
+                    e.Graphics.FillRectangle(Brush, (el.xGrid*_grille.tailleCellule + _grille.tailleCellule / 2) -5, (el.yGrid* _grille.tailleCellule + _grille.tailleCellule / 2) -5, 10, 10);
                 }
             }
         
@@ -130,6 +144,9 @@ namespace WindowsFormsApplication1
                     default:
                         {break;}
                 }
+            }else
+            {
+                UpdateList(_grille.LesElements, listBox1.SelectedIndex);
             }           
         }
 
@@ -161,18 +178,16 @@ namespace WindowsFormsApplication1
             el.xGrid = (el.X1)* _grille.nbCellule / (_grille.nbCellule * _grille.tailleCellule);
         }
 
-        private void UpdateList(List<Element> list)
+        private void UpdateList(List<Element> list,int idx)
         {
             listBox1.Items.Clear();
             foreach (Element el in list)
             {
                 listBox1.Items.Add(el);
             }
-        }
-
-        private bool Delete(Ligne ligne)
-        {
-            return false;
+            _noise = true;
+            if (idx < _grille.LesElements.Count) { listBox1.SelectedIndex = idx; }            
+            _noise = false;
         }
 
         //Boutons canva
@@ -190,9 +205,27 @@ namespace WindowsFormsApplication1
             try
             {
                 _grille.LesElements.RemoveAt(listBox1.SelectedIndex);
+                _noise = true;
+                listBox1.SelectedIndex = 0; 
+                _noise = false;
                 pictureBox1.Invalidate();
             }
             catch(Exception){}       
-        }    
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_noise) return;
+            try
+            {
+                foreach (Element el in _grille.LesElements)
+                {
+                    el.isSelected = false;
+                }
+                _grille.LesElements[listBox1.SelectedIndex].isSelected = true;            
+                pictureBox1.Invalidate();                
+            }
+            catch (Exception) { }
+        }
     }
 }

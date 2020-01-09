@@ -18,6 +18,9 @@ namespace WindowsFormsApplication1
         private int _xGrid2;
         private int _yGrid2;
         private string _nom;
+        private Element _ElemPrec;
+        private Element _ElemSuiv;
+        private bool _isSelected;
 
         public int X2
         {
@@ -59,6 +62,21 @@ namespace WindowsFormsApplication1
             get { return _Y1; }
             set { _Y1 = value; }
         }
+        Element Element.ElemPrec
+        {
+            get { return _ElemPrec; }
+            set { _ElemPrec = value; }
+        }
+        Element Element.ElemSuiv
+        {
+            get { return _ElemSuiv; }
+            set { _ElemSuiv = value; }
+        }
+        bool Element.isSelected
+        {
+            get { return _isSelected; }
+            set { _isSelected = value; }
+        }
 
         public Ligne(int x1, int y1, int x2, int y2)
         {
@@ -68,6 +86,7 @@ namespace WindowsFormsApplication1
             _Y2 = y2;
             NbLignes += 1;
             _nom = "Ligne" + NbLignes;
+            _isSelected = false;
         }
 
         ~Ligne()

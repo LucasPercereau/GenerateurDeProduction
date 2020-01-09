@@ -28,5 +28,21 @@ namespace WindowsFormsApplication1
             get;
             set;
         }
+        bool isSelected
+        {
+            get;
+            set;
+        }
+
+        Element ElemPrec
+        {
+            get;
+            set;
+        }
+        Element ElemSuiv
+        {
+            get;
+            set;
+        }
     }
 }

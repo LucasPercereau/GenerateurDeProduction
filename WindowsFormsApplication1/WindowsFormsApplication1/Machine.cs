@@ -14,6 +14,9 @@ namespace WindowsFormsApplication1
         private int _xGrid;
         private int _yGrid;
         private string _nom;
+        private Element _ElemPrec;
+        private Element _ElemSuiv;
+        private bool _isSelected;
 
         int Element.X1
         {
@@ -37,6 +40,22 @@ namespace WindowsFormsApplication1
             set { _yGrid = value; }
         }
 
+        Element Element.ElemPrec
+        {
+            get { return _ElemPrec; }
+            set { _ElemPrec = value; }
+        }
+        Element Element.ElemSuiv
+        {
+            get { return _ElemSuiv; }
+            set { _ElemSuiv = value; }
+        }
+        bool Element.isSelected
+        {
+            get { return _isSelected; }
+            set { _isSelected = value; }
+        }
+
         public Machine(int x1, int y1)
         {
             _X1 = x1;
@@ -44,6 +63,7 @@ namespace WindowsFormsApplication1
        
             NbMachine += 1;
             _nom = "Machine" + NbMachine;
+            _isSelected = false;
         }
 
         ~Machine()

@@ -42,21 +42,30 @@ namespace WindowsFormsApplication1
                 Ligne l = (Ligne)el;
                 bool flag1 = false;
                 bool flag2 = false;
+                Element prov1 = null;
+                Element prov2 = null;
                 foreach (Element element in LesElements)
                 {
                     if(el.xGrid == element.xGrid && el.yGrid == element.yGrid)
                     {
                         flag1 = true;
+                        prov1 = element;
                     }
                     if (l.xGrid2 == element.xGrid && l.yGrid2 == element.yGrid)
                     {
                         flag2 = true;
+                        prov2 = element;
                     }
                 }
-                if(!flag1 || !flag2)
+                if (!flag1 || !flag2)
                 {
                     return false;
+                }else
+                {
+                    el.ElemPrec = prov1;
+                    el.ElemSuiv = prov2;
                 }
+                
             }
             else
             {
