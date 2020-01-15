@@ -32,12 +32,12 @@ namespace WindowsFormsApplication1
             get { return _Y2; }
             set { _Y2 = value; }
         }
-        int Element.xGrid
+        public int xGrid
         {
             get { return _xGrid; }
             set { _xGrid = value; }
         }
-        int Element.yGrid
+        public int yGrid
         {
             get { return _yGrid; }
             set { _yGrid = value; }
@@ -52,27 +52,27 @@ namespace WindowsFormsApplication1
             get { return _yGrid2; }
             set { _yGrid2 = value; }
         }
-        int Element.X1
+        public int X1
         {
             get { return _X1; }
             set { _X1 = value; }
         }
-        int Element.Y1
+        public int Y1
         {
             get { return _Y1; }
             set { _Y1 = value; }
         }
-        Element Element.ElemPrec
+        public Element ElemPrec
         {
             get { return _ElemPrec; }
             set { _ElemPrec = value; }
         }
-        Element Element.ElemSuiv
+        public Element ElemSuiv
         {
             get { return _ElemSuiv; }
             set { _ElemSuiv = value; }
         }
-        bool Element.isSelected
+        public bool isSelected
         {
             get { return _isSelected; }
             set { _isSelected = value; }

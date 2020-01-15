@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 namespace WindowsFormsApplication1
 {
-    class Machine : Element
+    class FirstElement : Element
     {
-        public static long NbMachine;
         private int _X1;
         private int _Y1;
         private int _xGrid;
         private int _yGrid;
-        public string _nom;
+        private string _nom;
         private Element _ElemPrec;
         private Element _ElemSuiv;
         private bool _isSelected;
@@ -41,12 +39,12 @@ namespace WindowsFormsApplication1
             set { _yGrid = value; }
         }
 
-        public Element ElemPrec
+        Element Element.ElemPrec
         {
-            get { return _ElemPrec; }
+            get { return null; }
             set { _ElemPrec = value; }
         }
-        public Element ElemSuiv
+        Element Element.ElemSuiv
         {
             get { return _ElemSuiv; }
             set { _ElemSuiv = value; }
@@ -57,29 +55,18 @@ namespace WindowsFormsApplication1
             set { _isSelected = value; }
         }
 
-        public Machine(int x1, int y1)
+        public FirstElement(int x1, int y1)
         {
             _X1 = x1;
             _Y1 = y1;
-       
-            NbMachine += 1;
-            _nom = "Machine" + NbMachine;
-            _isSelected = false;
-        }
 
-        ~Machine()
-        {
-            NbMachine -= 1;
+            _nom = "1er element";
+            _isSelected = false;
         }
 
         public override string ToString()
         {
             return _nom + " X:" + _xGrid + " Y:" + _yGrid;
-        }
-
-        public string GetJson()
-        {
-            return JsonConvert.SerializeObject(this);
         }
     }
 }

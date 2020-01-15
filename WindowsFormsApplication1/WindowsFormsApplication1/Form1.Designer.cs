@@ -36,6 +36,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -79,7 +80,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(155, 46);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Generer";
+            this.button3.Text = "First Element";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -124,11 +125,22 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Zone de dessin";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(32, 463);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(155, 46);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "Generer";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 761);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
@@ -151,6 +163,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button5;
     }
 }
 

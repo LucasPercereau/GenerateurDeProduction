@@ -11,6 +11,7 @@ namespace WindowsFormsApplication1
         private int _tailleCellule;
         private int _nbCellule;
         private List<Element> _LesElements;
+        private Element _FirstElement;
 
         public Grille(int taille,int nb)
         {
@@ -29,6 +30,11 @@ namespace WindowsFormsApplication1
             get { return _nbCellule; }
             set { _nbCellule = value; }
         }
+        public Element FirstElement
+        {
+            get { return _FirstElement; }
+            set { _FirstElement = value; }
+        }
         public List<Element> LesElements
         {
             get { return _LesElements; }
@@ -44,6 +50,13 @@ namespace WindowsFormsApplication1
                 bool flag2 = false;
                 Element prov1 = null;
                 Element prov2 = null;
+                foreach (Element li in LesElements)
+                {
+                    if (li is Ligne && el.xGrid == li.xGrid && el.yGrid == li.yGrid)
+                    {
+                        return false;
+                    }
+                }
                 foreach (Element element in LesElements)
                 {
                     if(el.xGrid == element.xGrid && el.yGrid == element.yGrid)
@@ -57,17 +70,24 @@ namespace WindowsFormsApplication1
                         prov2 = element;
                     }
                 }
+                if(FirstElement!=null && el.xGrid == FirstElement.xGrid && el.yGrid == FirstElement.yGrid)
+                {
+                    flag1 = true;
+                    prov1 = FirstElement;
+                }
                 if (!flag1 || !flag2)
                 {
                     return false;
                 }else
                 {
-                    el.ElemPrec = prov1;
-                    el.ElemSuiv = prov2;
+                    l.ElemPrec = prov1;
+                    l.ElemSuiv = prov2;
+                    prov1.ElemSuiv = prov2;
+                    //prov2.ElemPrec = prov1;
                 }
                 
             }
-            else
+            else if (el is Machine)
             {
                 foreach (Element element in LesElements)
                 {
@@ -76,6 +96,11 @@ namespace WindowsFormsApplication1
                         return false;
                     }
                 }
+            }
+            else
+            {
+                if (_FirstElement == null) { _FirstElement = el;}
+                else { return false; }
             }                              
             _LesElements.Add(el);
             return true;

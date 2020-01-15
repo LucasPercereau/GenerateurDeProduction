@@ -33,7 +33,6 @@ namespace WindowsFormsApplication1
             get;
             set;
         }
-
         Element ElemPrec
         {
             get;

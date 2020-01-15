@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace WindowsFormsApplication1
 {
@@ -50,6 +52,13 @@ namespace WindowsFormsApplication1
                         _grille.add(M);
                         break;
                     }
+                case "FirstElement":
+                    {
+                        FirstElement F = new FirstElement(e.X, e.Y);
+                        setToGrid(F);
+                        _grille.add(F);
+                        break;
+                    }
                 default:
                     {
                         break;
@@ -84,9 +93,9 @@ namespace WindowsFormsApplication1
                             break;
                         }
                     case "Machine":
-                        {
-                            break;
-                        }
+                        { break; }
+                    case "FirstElement":
+                        { break; }
                     default:
                         {
                             break;
@@ -104,12 +113,11 @@ namespace WindowsFormsApplication1
             paintGrid(e);
             foreach (Element el in _grille.LesElements)
             {
-                setToGrid(el);
                 Pen LinePen = null;
                 SolidBrush Brush = null;
                 if (el.isSelected)
                 {
-                    LinePen = new Pen(Color.FromArgb(0, 0, 255, 0), 3);
+                    LinePen = new Pen(Color.Blue, 3);
                     Brush = new SolidBrush(Color.Blue);
                 }
                 else
@@ -121,15 +129,18 @@ namespace WindowsFormsApplication1
                 if (el is Ligne)
                 {
                     Ligne l = (Ligne)el;              
-                    e.Graphics.DrawLine(LinePen,el.xGrid * _grille.tailleCellule + _grille.tailleCellule / 2, el.yGrid * _grille.tailleCellule + _grille.tailleCellule / 2, l.X2, l.Y2);
+                    e.Graphics.DrawLine(LinePen,el.xGrid * _grille.tailleCellule + _grille.tailleCellule / 2, el.yGrid * _grille.tailleCellule + _grille.tailleCellule / 2, l.xGrid2 * _grille.tailleCellule + _grille.tailleCellule / 2, l.yGrid2 * _grille.tailleCellule + _grille.tailleCellule / 2);
                 }
                 if(el is Machine)
                 {
                     e.Graphics.FillRectangle(Brush, (el.xGrid*_grille.tailleCellule + _grille.tailleCellule / 2) -5, (el.yGrid* _grille.tailleCellule + _grille.tailleCellule / 2) -5, 10, 10);
-                }
+                }    
+                if(el is FirstElement)
+                {
+                    e.Graphics.FillRectangle(new SolidBrush(Color.Green), (_grille.FirstElement.xGrid * _grille.tailleCellule + _grille.tailleCellule / 2) - 5, (_grille.FirstElement.yGrid * _grille.tailleCellule + _grille.tailleCellule / 2) - 5, 10, 10);
+                }                            
             }
-        
-            
+                        
             if (IsMouseDown)
             {
                 switch (CaseDraw)
@@ -140,6 +151,8 @@ namespace WindowsFormsApplication1
                             break;
                         }
                     case "Machine":
+                        {break;}
+                    case "FirstElement":
                         {break;}
                     default:
                         {break;}
@@ -198,15 +211,20 @@ namespace WindowsFormsApplication1
         {CaseDraw = "Machine";}
 
         private void button3_Click(object sender, EventArgs e)
-        {}
+        { CaseDraw = "FirstElement"; }
 
         private void button4_Click(object sender, EventArgs e)
         {
             try
             {
-                _grille.LesElements.RemoveAt(listBox1.SelectedIndex);
+                if(listBox1.SelectedItem is FirstElement)
+                {
+                    _grille.FirstElement = null;
+                }
+                                
+                _grille.LesElements.RemoveAt(listBox1.SelectedIndex);                                              
                 _noise = true;
-                listBox1.SelectedIndex = 0; 
+                listBox1.SelectedIndex = 0;
                 _noise = false;
                 pictureBox1.Invalidate();
             }
@@ -226,6 +244,20 @@ namespace WindowsFormsApplication1
                 pictureBox1.Invalidate();                
             }
             catch (Exception) { }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string json = "";
+            foreach (Element el in _grille.LesElements)
+            {
+                if(el is Machine)
+                {
+                    Machine m = (Machine)el;
+                    json += m.GetJson();
+                }               
+            }        
+            File.WriteAllText("BONJOUR", json);
         }
     }
 }
