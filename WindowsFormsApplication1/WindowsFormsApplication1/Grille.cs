@@ -11,7 +11,6 @@ namespace WindowsFormsApplication1
         private int _tailleCellule;
         private int _nbCellule;
         private List<Element> _LesElements;
-        private Element _FirstElement;
 
         public Grille(int taille,int nb)
         {
@@ -30,11 +29,7 @@ namespace WindowsFormsApplication1
             get { return _nbCellule; }
             set { _nbCellule = value; }
         }
-        public Element FirstElement
-        {
-            get { return _FirstElement; }
-            set { _FirstElement = value; }
-        }
+
         public List<Element> LesElements
         {
             get { return _LesElements; }
@@ -43,16 +38,16 @@ namespace WindowsFormsApplication1
 
         public bool add(Element el)
         {        
-            if(el is Ligne)
+            if(el is Convoyeur)
             {
-                Ligne l = (Ligne)el;
+                Convoyeur l = (Convoyeur)el;
                 bool flag1 = false;
                 bool flag2 = false;
                 Element prov1 = null;
                 Element prov2 = null;
                 foreach (Element li in LesElements)
                 {
-                    if (li is Ligne && el.xGrid == li.xGrid && el.yGrid == li.yGrid)
+                    if (li is Convoyeur && el.xGrid == li.xGrid && el.yGrid == li.yGrid)
                     {
                         return false;
                     }
@@ -70,22 +65,14 @@ namespace WindowsFormsApplication1
                         prov2 = element;
                     }
                 }
-                if(FirstElement!=null && el.xGrid == FirstElement.xGrid && el.yGrid == FirstElement.yGrid)
-                {
-                    flag1 = true;
-                    prov1 = FirstElement;
-                }
                 if (!flag1 || !flag2)
                 {
                     return false;
-                }else
+                }   
+                else
                 {
-                    l.ElemPrec = prov1;
-                    l.ElemSuiv = prov2;
-                    prov1.ElemSuiv = prov2;
-                    //prov2.ElemPrec = prov1;
-                }
-                
+                    prov1.Sorties.Add(prov2);
+                }             
             }
             else if (el is Machine)
             {
@@ -97,11 +84,7 @@ namespace WindowsFormsApplication1
                     }
                 }
             }
-            else
-            {
-                if (_FirstElement == null) { _FirstElement = el;}
-                else { return false; }
-            }                              
+                             
             _LesElements.Add(el);
             return true;
         }

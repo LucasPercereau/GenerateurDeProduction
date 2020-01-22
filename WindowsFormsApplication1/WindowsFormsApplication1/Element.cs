@@ -33,15 +33,21 @@ namespace WindowsFormsApplication1
             get;
             set;
         }
-        Element ElemPrec
+        List<Element> Entrees
         {
             get;
             set;
         }
-        Element ElemSuiv
+        List<Element> Sorties
         {
             get;
             set;
         }
+        string ImgPath
+        {
+            get;
+            set;
+        }
+        string GetJson();
     }
 }

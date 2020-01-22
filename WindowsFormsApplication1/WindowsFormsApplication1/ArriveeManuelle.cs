@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 namespace WindowsFormsApplication1
 {
-    class Machine : Element
+    class ArriveeManuelle : Element
     {
-        public static long NbMachine;
+        public static long NbArriveeManuelle;
         private int _X1;
         private int _Y1;
         private int _xGrid;
@@ -19,6 +19,19 @@ namespace WindowsFormsApplication1
         private List<Element> _entrees;
         private bool _isSelected;
         private string _imgPath;
+
+        public ArriveeManuelle(int x1, int y1)
+        {
+            _X1 = x1;
+            _Y1 = y1;
+            _sorties = new List<Element>(0);
+            _entrees = new List<Element>(1);
+
+            NbArriveeManuelle += 1;
+            _nom = "Arrivee Manuelle" + NbArriveeManuelle;
+            _isSelected = false;
+            _imgPath = @"Images\img1.jpg";
+        }
 
         public string ImgPath
         {
@@ -63,25 +76,7 @@ namespace WindowsFormsApplication1
             set { _isSelected = value; }
         }
 
-        public Machine(int x1, int y1)
-        {
-            _X1 = x1;
-            _Y1 = y1;
-
-            _sorties = new List<Element>(1);
-            _entrees = new List<Element>(1);
-
-            NbMachine += 1;
-            _nom = "Machine" + NbMachine;
-            _isSelected = false;
-            _imgPath = @"Images\img2.jpg";
-        }
-
-        ~Machine()
-        {
-            NbMachine -= 1;
-        }
-
+       
         public override string ToString()
         {
             return _nom + " X:" + _xGrid + " Y:" + _yGrid;
@@ -91,5 +86,11 @@ namespace WindowsFormsApplication1
         {
             return JsonConvert.SerializeObject(this);
         }
+
+        ~ArriveeManuelle()
+        {
+            NbArriveeManuelle -= 1;
+        }
     }
 }
+

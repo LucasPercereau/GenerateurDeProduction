@@ -34,23 +34,38 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.selectionElementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.machineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arrivéePrédéfinieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.machine1e1sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.match2e1sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.batch1e1sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unbatch1e1sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aiguillageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mux2e1sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.merge2e1sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.feu1e1sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wTEGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -58,7 +73,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(148, 23);
+            this.label1.Location = new System.Drawing.Point(150, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(410, 39);
             this.label1.TabIndex = 2;
@@ -97,16 +112,16 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(708, 85);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(711, 93);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(568, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(571, 3);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(137, 79);
+            this.pictureBox2.Size = new System.Drawing.Size(137, 87);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
@@ -117,126 +132,10 @@
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(3, 3);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(135, 79);
+            this.pictureBox3.Size = new System.Drawing.Size(136, 87);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.BackColor = System.Drawing.Color.DarkCyan;
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.button5, 0, 3);
-            this.tableLayoutPanel4.Controls.Add(this.listBox1, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.button4, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 4;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(175, 466);
-            this.tableLayoutPanel4.TabIndex = 2;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.button2, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.button1, 0, 2);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 3;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(175, 233);
-            this.tableLayoutPanel5.TabIndex = 6;
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(3, 188);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 42);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Liaison";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(169, 28);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Machine";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button4
-            // 
-            this.button4.AutoSize = true;
-            this.button4.BackColor = System.Drawing.Color.DarkOrange;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Location = new System.Drawing.Point(3, 375);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(169, 40);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Delete";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.BackColor = System.Drawing.Color.MintCream;
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(3, 236);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(169, 133);
-            this.listBox1.TabIndex = 4;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.Lime;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(3, 421);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(169, 42);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Generer";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(178, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(530, 460);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
-            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
-            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // tableLayoutPanel2
             // 
@@ -247,13 +146,233 @@
             this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 85);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 93);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(711, 466);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(711, 458);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(178, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(530, 452);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.BackColor = System.Drawing.Color.DarkCyan;
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.button3, 0, 3);
+            this.tableLayoutPanel4.Controls.Add(this.listBox1, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.button2, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 4;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(175, 458);
+            this.tableLayoutPanel4.TabIndex = 2;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Lime;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(3, 414);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(169, 41);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Generer";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.BackColor = System.Drawing.Color.MintCream;
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 25;
+            this.listBox1.Location = new System.Drawing.Point(3, 232);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(169, 131);
+            this.listBox1.TabIndex = 4;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // button2
+            // 
+            this.button2.AutoSize = true;
+            this.button2.BackColor = System.Drawing.Color.DarkOrange;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button2.Location = new System.Drawing.Point(3, 369);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(169, 39);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Delete";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.button1, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.menuStrip1, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.pictureBox4, 0, 1);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 3;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(175, 229);
+            this.tableLayoutPanel5.TabIndex = 6;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(3, 185);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(169, 41);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Liaison";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.selectionElementToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(175, 34);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // selectionElementToolStripMenuItem
+            // 
+            this.selectionElementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.machineToolStripMenuItem,
+            this.arrivéePrédéfinieToolStripMenuItem,
+            this.machine1e1sToolStripMenuItem,
+            this.match2e1sToolStripMenuItem,
+            this.batch1e1sToolStripMenuItem,
+            this.unbatch1e1sToolStripMenuItem,
+            this.aiguillageToolStripMenuItem,
+            this.mux2e1sToolStripMenuItem,
+            this.merge2e1sToolStripMenuItem,
+            this.feu1e1sToolStripMenuItem,
+            this.wTEGToolStripMenuItem});
+            this.selectionElementToolStripMenuItem.Name = "selectionElementToolStripMenuItem";
+            this.selectionElementToolStripMenuItem.Size = new System.Drawing.Size(113, 30);
+            this.selectionElementToolStripMenuItem.Text = "Selection element";
+            // 
+            // machineToolStripMenuItem
+            // 
+            this.machineToolStripMenuItem.Name = "machineToolStripMenuItem";
+            this.machineToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.machineToolStripMenuItem.Text = "Arrivée manuelle";
+            this.machineToolStripMenuItem.Click += new System.EventHandler(this.machineToolStripMenuItem_Click);
+            // 
+            // arrivéePrédéfinieToolStripMenuItem
+            // 
+            this.arrivéePrédéfinieToolStripMenuItem.Name = "arrivéePrédéfinieToolStripMenuItem";
+            this.arrivéePrédéfinieToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.arrivéePrédéfinieToolStripMenuItem.Text = "Arrivée prédéfinie";
+            this.arrivéePrédéfinieToolStripMenuItem.Click += new System.EventHandler(this.arrivéePrédéfinieToolStripMenuItem_Click);
+            // 
+            // machine1e1sToolStripMenuItem
+            // 
+            this.machine1e1sToolStripMenuItem.Name = "machine1e1sToolStripMenuItem";
+            this.machine1e1sToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.machine1e1sToolStripMenuItem.Text = "Machine 1e1s";
+            this.machine1e1sToolStripMenuItem.Click += new System.EventHandler(this.machine1e1sToolStripMenuItem_Click);
+            // 
+            // match2e1sToolStripMenuItem
+            // 
+            this.match2e1sToolStripMenuItem.Name = "match2e1sToolStripMenuItem";
+            this.match2e1sToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.match2e1sToolStripMenuItem.Text = "Match 2e1s";
+            this.match2e1sToolStripMenuItem.Click += new System.EventHandler(this.match2e1sToolStripMenuItem_Click);
+            // 
+            // batch1e1sToolStripMenuItem
+            // 
+            this.batch1e1sToolStripMenuItem.Name = "batch1e1sToolStripMenuItem";
+            this.batch1e1sToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.batch1e1sToolStripMenuItem.Text = "Batch 1e1s";
+            this.batch1e1sToolStripMenuItem.Click += new System.EventHandler(this.batch1e1sToolStripMenuItem_Click);
+            // 
+            // unbatch1e1sToolStripMenuItem
+            // 
+            this.unbatch1e1sToolStripMenuItem.Name = "unbatch1e1sToolStripMenuItem";
+            this.unbatch1e1sToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.unbatch1e1sToolStripMenuItem.Text = "Unbatch 1e1s";
+            this.unbatch1e1sToolStripMenuItem.Click += new System.EventHandler(this.unbatch1e1sToolStripMenuItem_Click);
+            // 
+            // aiguillageToolStripMenuItem
+            // 
+            this.aiguillageToolStripMenuItem.Name = "aiguillageToolStripMenuItem";
+            this.aiguillageToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.aiguillageToolStripMenuItem.Text = "Aiguillage";
+            this.aiguillageToolStripMenuItem.Click += new System.EventHandler(this.aiguillageToolStripMenuItem_Click);
+            // 
+            // mux2e1sToolStripMenuItem
+            // 
+            this.mux2e1sToolStripMenuItem.Name = "mux2e1sToolStripMenuItem";
+            this.mux2e1sToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.mux2e1sToolStripMenuItem.Text = "Mux 2e1s";
+            this.mux2e1sToolStripMenuItem.Click += new System.EventHandler(this.mux2e1sToolStripMenuItem_Click);
+            // 
+            // merge2e1sToolStripMenuItem
+            // 
+            this.merge2e1sToolStripMenuItem.Name = "merge2e1sToolStripMenuItem";
+            this.merge2e1sToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.merge2e1sToolStripMenuItem.Text = "Merge 2e1s";
+            this.merge2e1sToolStripMenuItem.Click += new System.EventHandler(this.merge2e1sToolStripMenuItem_Click);
+            // 
+            // feu1e1sToolStripMenuItem
+            // 
+            this.feu1e1sToolStripMenuItem.Name = "feu1e1sToolStripMenuItem";
+            this.feu1e1sToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.feu1e1sToolStripMenuItem.Text = "Feu 1e1s";
+            this.feu1e1sToolStripMenuItem.Click += new System.EventHandler(this.feu1e1sToolStripMenuItem_Click);
+            // 
+            // wTEGToolStripMenuItem
+            // 
+            this.wTEGToolStripMenuItem.Name = "wTEGToolStripMenuItem";
+            this.wTEGToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.wTEGToolStripMenuItem.Text = "WTEG";
+            this.wTEGToolStripMenuItem.Click += new System.EventHandler(this.wTEGToolStripMenuItem_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox4.Location = new System.Drawing.Point(3, 37);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(169, 142);
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
             // 
             // Form1
             // 
@@ -261,6 +380,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 551);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Resize += new System.EventHandler(this.Form1_Resize);
@@ -269,11 +389,15 @@
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -287,12 +411,25 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem selectionElementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem machineToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem arrivéePrédéfinieToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem machine1e1sToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem match2e1sToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem batch1e1sToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unbatch1e1sToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aiguillageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mux2e1sToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem merge2e1sToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem feu1e1sToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wTEGToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
 

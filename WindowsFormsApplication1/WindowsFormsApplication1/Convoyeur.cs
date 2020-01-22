@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    class Ligne : Element
+    class Convoyeur : Element
     {
         public static long NbLignes;
         private int _X1;
@@ -18,10 +19,32 @@ namespace WindowsFormsApplication1
         private int _xGrid2;
         private int _yGrid2;
         private string _nom;
-        private Element _ElemPrec;
-        private Element _ElemSuiv;
+        private List<Element> _sorties;
+        private List<Element> _entrees;
         private bool _isSelected;
+        private string _imgPath;
 
+        public Convoyeur(int x1, int y1, int x2, int y2)
+        {
+            _X1 = x1;
+            _Y1 = y1;
+            _X2 = x2;
+            _Y2 = y2;
+
+            _sorties = new List<Element>(1);
+            _entrees = new List<Element>(1);
+
+            NbLignes += 1;
+            _nom = "Ligne" + NbLignes;
+            _isSelected = false;
+            _imgPath = @"Images\img3.jpg";
+        }
+
+        public string ImgPath
+        {
+            get { return _imgPath; }
+            set { _imgPath = value; }
+        }
         public int X2
         {
             get { return _X2; }
@@ -62,15 +85,15 @@ namespace WindowsFormsApplication1
             get { return _Y1; }
             set { _Y1 = value; }
         }
-        public Element ElemPrec
+        public List<Element> Sorties
         {
-            get { return _ElemPrec; }
-            set { _ElemPrec = value; }
+            get { return _sorties; }
+            set { _sorties = value; }
         }
-        public Element ElemSuiv
+        public List<Element> Entrees
         {
-            get { return _ElemSuiv; }
-            set { _ElemSuiv = value; }
+            get { return _entrees; }
+            set { _entrees = value; }
         }
         public bool isSelected
         {
@@ -78,25 +101,17 @@ namespace WindowsFormsApplication1
             set { _isSelected = value; }
         }
 
-        public Ligne(int x1, int y1, int x2, int y2)
-        {
-            _X1 = x1;
-            _Y1 = y1;
-            _X2 = x2;
-            _Y2 = y2;
-            NbLignes += 1;
-            _nom = "Ligne" + NbLignes;
-            _isSelected = false;
-        }
-
-        ~Ligne()
-        {
-            NbLignes -= 1;
-        }
-
         public override string ToString()
         {
-            return _nom + " X:"+_xGrid+" Y:"+_yGrid;
+            return _nom + " X:" + _xGrid + " Y:" + _yGrid;
         }
+        public string GetJson()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
+        ~Convoyeur()
+        {
+            NbLignes -= 1;
+        }        
     }
 }

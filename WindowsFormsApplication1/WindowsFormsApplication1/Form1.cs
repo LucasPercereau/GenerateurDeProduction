@@ -21,7 +21,7 @@ namespace WindowsFormsApplication1
         public Form1()
         {
             InitializeComponent();
-            _grille = new Grille(Math.Min(pictureBox1.Size.Width, pictureBox1.Size.Height) / 10,10);        
+            _grille = new Grille(Math.Min(pictureBox1.Size.Width, pictureBox1.Size.Height) / 10,10);
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -29,7 +29,7 @@ namespace WindowsFormsApplication1
             IsMouseDown = true;
             switch(CaseDraw)
             {
-                case "Ligne":
+                case "Convoyeur":
                     {
                         _StartX = e.X;
                         _StartY = e.Y;
@@ -44,17 +44,78 @@ namespace WindowsFormsApplication1
                         _grille.add(M);
                         break;
                     }
-                case "FirstElement":
+                case "ArriveeManuelle":
                     {
-                        FirstElement F = new FirstElement(e.X, e.Y);
+                        ArriveeManuelle AM = new ArriveeManuelle(e.X, e.Y);
+                        setToGrid(AM);
+                        _grille.add(AM);
+                        break;
+                    }
+                case "ArriveePredefinie":
+                    {
+                        ArriveePredefinie AP = new ArriveePredefinie(e.X, e.Y);
+                        setToGrid(AP);
+                        _grille.add(AP);
+                        break;
+                    }
+                case "Match":
+                    {
+                        Match M = new Match(e.X, e.Y);
+                        setToGrid(M);
+                        _grille.add(M);
+                        break;
+                    }
+                case "Batch":
+                    {
+                        Batch B = new Batch(e.X, e.Y);
+                        setToGrid(B);
+                        _grille.add(B);
+                        break;
+                    }
+                case "UnBatch":
+                    {
+                        UnBatch UB = new UnBatch(e.X, e.Y);
+                        setToGrid(UB);
+                        _grille.add(UB);
+                        break;
+                    }
+                case "Aiguillage":
+                    {
+                        Aiguillage A = new Aiguillage(e.X, e.Y);
+                        setToGrid(A);
+                        _grille.add(A);
+                        break;
+                    }
+                case "Mux":
+                    {
+                        Mux M = new Mux(e.X, e.Y);
+                        setToGrid(M);
+                        _grille.add(M);
+                        break;
+                    }
+                case "Merge":
+                    {
+                        Merge M = new Merge(e.X, e.Y);
+                        setToGrid(M);
+                        _grille.add(M);
+                        break;
+                    }
+                case "Feu":
+                    {
+                        Feu F = new Feu(e.X, e.Y);
                         setToGrid(F);
                         _grille.add(F);
                         break;
                     }
-                default:
+                case "WTEG":
                     {
+                        WTEG W = new WTEG(e.X, e.Y);
+                        setToGrid(W);
+                        _grille.add(W);
                         break;
                     }
+                default:
+                    {break;}
             }
             pictureBox1.Invalidate();
         }
@@ -77,21 +138,15 @@ namespace WindowsFormsApplication1
             {
                 switch (CaseDraw)
                 {
-                    case "Ligne":
-                        {                                                   
-                            Ligne L = new Ligne(_StartX, _StartY, _CurX, _CurY);
-                            setToGrid(L);
-                            _grille.add(L);
-                            break;
-                        }
-                    case "Machine":
-                        { break; }
-                    case "FirstElement":
-                        { break; }
-                    default:
+                    case "Convoyeur":
                         {
+                            Convoyeur C = new Convoyeur(_StartX, _StartY, _CurX, _CurY);
+                            setToGrid(C);
+                            _grille.add(C);
                             break;
-                        }
+                        }                    
+                    default:
+                        {break;}
                 }
             }
             pictureBox1.Invalidate();
@@ -106,53 +161,46 @@ namespace WindowsFormsApplication1
             foreach (Element el in _grille.LesElements)
             {
                 Pen LinePen = null;
-                SolidBrush Brush = null;
-                if (el.isSelected)
+                //SolidBrush Brush = null;
+                TextureBrush brush = null;
+                /*if (el.isSelected)
                 {
                     LinePen = new Pen(Color.Blue, 3);
                     Brush = new SolidBrush(Color.Blue);
                 }
                 else
-                {
-                    LinePen = new Pen(Color.FromArgb(255, 255, 0, 0), 3);
-                    Brush = new SolidBrush(Color.Red);
-                }
+                {*/
+                    Bitmap bmp = new Bitmap(el.ImgPath);
+                    Bitmap result = ResizeBitmap(bmp, _grille.tailleCellule, _grille.tailleCellule);
+                    brush = new TextureBrush(result);
+                //}
                 
-                if (el is Ligne)
+                if (el is Convoyeur)
                 {
-                    Ligne l = (Ligne)el;              
+                    LinePen = new Pen(Color.Red, 3);
+                    Convoyeur l = (Convoyeur)el;              
                     e.Graphics.DrawLine(LinePen,el.xGrid * _grille.tailleCellule + _grille.tailleCellule / 2, el.yGrid * _grille.tailleCellule + _grille.tailleCellule / 2, l.xGrid2 * _grille.tailleCellule + _grille.tailleCellule / 2, l.yGrid2 * _grille.tailleCellule + _grille.tailleCellule / 2);
                 }
-                if(el is Machine)
-                {
-                    e.Graphics.FillRectangle(Brush, (el.xGrid*_grille.tailleCellule + _grille.tailleCellule / 2) -5, (el.yGrid* _grille.tailleCellule + _grille.tailleCellule / 2) -5, 10, 10);
-                }    
-                if(el is FirstElement)
-                {
-                    e.Graphics.FillRectangle(new SolidBrush(Color.Green), (_grille.FirstElement.xGrid * _grille.tailleCellule + _grille.tailleCellule / 2) - 5, (_grille.FirstElement.yGrid * _grille.tailleCellule + _grille.tailleCellule / 2) - 5, 10, 10);
-                }                            
+                else
+                {                   
+                    e.Graphics.FillRectangle(brush, (el.xGrid * _grille.tailleCellule + _grille.tailleCellule / 2) - (_grille.tailleCellule - 4) / 2, (el.yGrid * _grille.tailleCellule + _grille.tailleCellule / 2) - (_grille.tailleCellule - 4) / 2, _grille.tailleCellule - 2, _grille.tailleCellule - 2);
+                }                                                         
             }
                         
             if (IsMouseDown)
             {
                 switch (CaseDraw)
                 {
-                    case "Ligne":
+                    case "Convoyeur":
                         {           
                             e.Graphics.DrawLine(new Pen(Color.Blue, 1), _StartX, _StartY, _CurX, _CurY);
                             break;
-                        }
-                    case "Machine":
-                        {break;}
-                    case "FirstElement":
-                        {break;}
+                        }                    
                     default:
                         {break;}
                 }
             }else
-            {
-                UpdateList(_grille.LesElements, listBox1.SelectedIndex);
-            }           
+            {UpdateList(_grille.LesElements, listBox1.SelectedIndex);}           
         }
 
         public void paintGrid(PaintEventArgs e)
@@ -173,9 +221,9 @@ namespace WindowsFormsApplication1
         
         private void setToGrid(Element el)
         {
-            if(el is Ligne)
+            if(el is Convoyeur)
             {
-                Ligne l = (Ligne)el;
+                Convoyeur l = (Convoyeur)el;
                 l.yGrid2 = (l.Y2) * _grille.nbCellule / (_grille.nbCellule * _grille.tailleCellule);
                 l.xGrid2 = (l.X2) * _grille.nbCellule / (_grille.nbCellule * _grille.tailleCellule);
             }
@@ -197,20 +245,15 @@ namespace WindowsFormsApplication1
 
         //Boutons canva
         private void button1_Click(object sender, EventArgs e)
-        {CaseDraw = "Ligne";}
+        {
+            CaseDraw = "Convoyeur";
+            pictureBox4.Image = Image.FromFile(@"Images\img2.jpg");
+        }     
 
         private void button2_Click(object sender, EventArgs e)
-        {CaseDraw = "Machine";}       
-
-        private void button4_Click(object sender, EventArgs e)
         {
             try
-            {
-                if(listBox1.SelectedItem is FirstElement)
-                {
-                    _grille.FirstElement = null;
-                }
-                                
+            {                              
                 _grille.LesElements.RemoveAt(listBox1.SelectedIndex);                                              
                 _noise = true;
                 listBox1.SelectedIndex = 0;
@@ -218,6 +261,18 @@ namespace WindowsFormsApplication1
                 pictureBox1.Invalidate();
             }
             catch(Exception){}       
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string json = "";
+            foreach (Element el in _grille.LesElements)
+            { 
+                if(el is ArriveeManuelle || el is ArriveePredefinie)
+                {
+                    json += el.GetJson();
+                }               
+            }
+            File.WriteAllText("BONJOUR", json);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -235,19 +290,7 @@ namespace WindowsFormsApplication1
             catch (Exception) { }
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            string json = "";
-            foreach (Element el in _grille.LesElements)
-            {
-                if(el is Machine)
-                {
-                    Machine m = (Machine)el;
-                    json += m.GetJson();
-                }               
-            }        
-            File.WriteAllText("BONJOUR", json);
-        }
+        
 
        
 
@@ -255,6 +298,63 @@ namespace WindowsFormsApplication1
         {
             _grille.tailleCellule = Math.Min(pictureBox1.Size.Width, pictureBox1.Size.Height) / 10;
             pictureBox1.Invalidate();
+        }
+        private void machineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CaseDraw = "ArriveeManuelle";
+            pictureBox4.Image = Image.FromFile(@"Images\img1.jpg");
+        }
+        private void arrivéePrédéfinieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CaseDraw = "ArriveePredefinie";
+            pictureBox4.Image = Image.FromFile(@"Images\img2.jpg");
+        }
+        private void machine1e1sToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CaseDraw = "Machine";
+            pictureBox4.Image = Image.FromFile(@"Images\img3.jpg");
+        }
+        private void match2e1sToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CaseDraw = "Match";
+        }
+        private void batch1e1sToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CaseDraw = "Batch";
+        }
+        private void unbatch1e1sToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CaseDraw = "UnBatch";
+        }
+        private void aiguillageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CaseDraw = "Aiguillage";
+        }
+        private void mux2e1sToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CaseDraw = "Mux";
+        }
+        private void merge2e1sToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CaseDraw = "Merge";
+        }
+        private void feu1e1sToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CaseDraw = "Feu";
+        }
+        private void wTEGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CaseDraw = "WTEG";
+        }
+
+        private Bitmap ResizeBitmap(Bitmap bmp, int width, int height)
+        {
+            Bitmap result = new Bitmap(width, height);
+            using (Graphics g = Graphics.FromImage(result))
+            {
+                g.DrawImage(bmp, 0, 0, width, height);
+            }
+            return result;
         }
     }
 }
