@@ -16,14 +16,12 @@ namespace WindowsFormsApplication1
         private int _CurY;
         private string CaseDraw = "Ligne";
         private Grille _grille;
-        private int tailleGrille;
         private bool _noise;
 
         public Form1()
         {
             InitializeComponent();
-            tailleGrille = pictureBox1.Size.Height;
-            _grille = new Grille(tailleGrille/10,10);        
+            _grille = new Grille(Math.Min(pictureBox1.Size.Width, pictureBox1.Size.Height) / 10,10);        
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -202,10 +200,7 @@ namespace WindowsFormsApplication1
         {CaseDraw = "Ligne";}
 
         private void button2_Click(object sender, EventArgs e)
-        {CaseDraw = "Machine";}
-
-        private void button3_Click(object sender, EventArgs e)
-        { CaseDraw = "FirstElement"; }
+        {CaseDraw = "Machine";}       
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -254,6 +249,12 @@ namespace WindowsFormsApplication1
             File.WriteAllText("BONJOUR", json);
         }
 
-        
+       
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            _grille.tailleCellule = Math.Min(pictureBox1.Size.Width, pictureBox1.Size.Height) / 10;
+            pictureBox1.Invalidate();
+        }
     }
 }
