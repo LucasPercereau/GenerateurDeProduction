@@ -17,15 +17,18 @@ namespace WindowsFormsApplication1
         private string CaseDraw = "Ligne";
         private Grille _grille;
         private bool _noise;
+        private int nbCell;
 
         public Form1()
         {
             InitializeComponent();
-            _grille = new Grille(Math.Min(pictureBox1.Size.Width, pictureBox1.Size.Height) / 10,10);
+            nbCell = 20;
+            _grille = new Grille(Math.Min(pictureBox1.Size.Width, pictureBox1.Size.Height) / nbCell, nbCell);
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
+            if(e.X > nbCell*_grille.tailleCellule || e.Y> nbCell * _grille.tailleCellule) { return; }
             IsMouseDown = true;
             switch(CaseDraw)
             {
@@ -264,15 +267,26 @@ namespace WindowsFormsApplication1
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            string json = "";
+            string js = "";
+            Element start = null;
             foreach (Element el in _grille.LesElements)
-            { 
+            {           
                 if(el is ArriveeManuelle || el is ArriveePredefinie)
                 {
-                    json += el.GetJson();
-                }               
+                    start = el;
+                    js = el.toJS() +js;
+                    start = el.Sorties[0];
+                    break;
+                }                                              
             }
-            File.WriteAllText("BONJOUR", json);
+            for(int i=0;i<_grille.LesElements.Count-1;i++)
+            {
+                js = start.toJS() + js;
+                if(start.Sorties.Count>0)
+                { start = start.Sorties[0]; }               
+            }
+            js += "drawCanvas();";
+            File.WriteAllText("../../../../Generation.js", js);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -288,15 +302,11 @@ namespace WindowsFormsApplication1
                 pictureBox1.Invalidate();                
             }
             catch (Exception) { }
-        }
-
-        
-
-       
+        }     
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            _grille.tailleCellule = Math.Min(pictureBox1.Size.Width, pictureBox1.Size.Height) / 10;
+            _grille.tailleCellule = Math.Min(pictureBox1.Size.Width, pictureBox1.Size.Height) / nbCell;
             pictureBox1.Invalidate();
         }
         private void machineToolStripMenuItem_Click(object sender, EventArgs e)
@@ -355,6 +365,27 @@ namespace WindowsFormsApplication1
                 g.DrawImage(bmp, 0, 0, width, height);
             }
             return result;
+        }
+
+        private void x10ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            nbCell = 10;
+            _grille = new Grille(Math.Min(pictureBox1.Size.Width, pictureBox1.Size.Height) / nbCell, nbCell, _grille.LesElements);
+            pictureBox1.Invalidate();
+        }
+
+        private void x20ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            nbCell = 20;
+            _grille = new Grille(Math.Min(pictureBox1.Size.Width, pictureBox1.Size.Height) / nbCell, nbCell, _grille.LesElements);
+            pictureBox1.Invalidate();
+        }
+
+        private void x50ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            nbCell = 50;
+            _grille = new Grille(Math.Min(pictureBox1.Size.Width, pictureBox1.Size.Height) / nbCell, nbCell, _grille.LesElements);
+            pictureBox1.Invalidate();
         }
     }
 }

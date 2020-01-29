@@ -18,6 +18,12 @@ namespace WindowsFormsApplication1
             _tailleCellule = taille;
             _nbCellule = nb;
         }
+        public Grille(int taille, int nb, List<Element> list)
+        {
+            _LesElements = list;
+            _tailleCellule = taille;
+            _nbCellule = nb;
+        }
 
         public int tailleCellule
         {
@@ -71,7 +77,8 @@ namespace WindowsFormsApplication1
                 }   
                 else
                 {
-                    prov1.Sorties.Add(prov2);
+                    prov1.Sorties.Add(el);
+                    el.Sorties.Add(prov2);
                 }             
             }
             else if (el is Machine)

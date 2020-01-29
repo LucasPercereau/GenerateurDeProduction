@@ -10,6 +10,7 @@ namespace WindowsFormsApplication1
     class ArriveeManuelle : Element
     {
         public static long NbArriveeManuelle;
+        private int _id;
         private int _X1;
         private int _Y1;
         private int _xGrid;
@@ -27,6 +28,7 @@ namespace WindowsFormsApplication1
             _sorties = new List<Element>(0);
             _entrees = new List<Element>(1);
 
+            id = (int)NbArriveeManuelle;
             NbArriveeManuelle += 1;
             _nom = "Arrivee Manuelle" + NbArriveeManuelle;
             _isSelected = false;
@@ -37,6 +39,11 @@ namespace WindowsFormsApplication1
         {
             get { return _imgPath; }
             set { _imgPath = value; }
+        }
+        public int id
+        {
+            get { return _id; }
+            set { _id = value; }
         }
         public int X1
         {
@@ -82,9 +89,10 @@ namespace WindowsFormsApplication1
             return _nom + " X:" + _xGrid + " Y:" + _yGrid;
         }
 
-        public string GetJson()
-        {
-            return JsonConvert.SerializeObject(this);
+        public string toJS()
+        {           
+            string ret = "";
+            return ret;
         }
 
         ~ArriveeManuelle()

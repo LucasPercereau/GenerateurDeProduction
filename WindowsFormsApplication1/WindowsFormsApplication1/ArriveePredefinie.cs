@@ -10,6 +10,7 @@ namespace WindowsFormsApplication1
     class ArriveePredefinie : Element
     {
         public static long NbArriveeArriveePredefinie;
+        private int _id;
         private int _X1;
         private int _Y1;
         private int _xGrid;
@@ -25,6 +26,7 @@ namespace WindowsFormsApplication1
             _X1 = x1;
             _Y1 = y1;
 
+            id = (int)NbArriveeArriveePredefinie;
             NbArriveeArriveePredefinie += 1;
             _nom = "Arrivee ArriveePredefinie" + NbArriveeArriveePredefinie;
             _isSelected = false;
@@ -35,6 +37,11 @@ namespace WindowsFormsApplication1
         {
             get { return _imgPath; }
             set { _imgPath = value; }
+        }
+        public int id
+        {
+            get { return _id; }
+            set { _id = value; }
         }
         public int X1
         {
@@ -80,7 +87,7 @@ namespace WindowsFormsApplication1
             return _nom + " X:" + _xGrid + " Y:" + _yGrid;
         }
 
-        public string GetJson()
+        public string toJS()
         {
             return JsonConvert.SerializeObject(this);
         }

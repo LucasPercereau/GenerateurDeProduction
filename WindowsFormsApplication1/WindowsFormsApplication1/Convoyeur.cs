@@ -10,6 +10,7 @@ namespace WindowsFormsApplication1
     class Convoyeur : Element
     {
         public static long NbLignes;
+        private int _id;
         private int _X1;
         private int _Y1;
         private int _X2;
@@ -34,6 +35,7 @@ namespace WindowsFormsApplication1
             _sorties = new List<Element>(1);
             _entrees = new List<Element>(1);
 
+            id = (int)NbLignes;
             NbLignes += 1;
             _nom = "Ligne" + NbLignes;
             _isSelected = false;
@@ -44,6 +46,11 @@ namespace WindowsFormsApplication1
         {
             get { return _imgPath; }
             set { _imgPath = value; }
+        }
+        public int id
+        {
+            get { return _id; }
+            set { _id = value; }
         }
         public int X2
         {
@@ -105,9 +112,17 @@ namespace WindowsFormsApplication1
         {
             return _nom + " X:" + _xGrid + " Y:" + _yGrid;
         }
-        public string GetJson()
+        public string toJS()
         {
-            return JsonConvert.SerializeObject(this);
+            string sortie = "";
+            if (Sorties.Count>0 && Sorties[0] is Machine)
+            {
+                sortie = "tabStock["+ Sorties[0].id+"]";
+            }
+            
+            string ret = "";
+            ret += "tabConvoyeur["+id+"]= new convoyeur("+ xGrid*100 + ","+yGrid*100+","+(xGrid2*100-xGrid*100)+",20,"+sortie+");\n";
+            return ret;
         }
         ~Convoyeur()
         {

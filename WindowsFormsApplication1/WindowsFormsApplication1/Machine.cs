@@ -10,6 +10,7 @@ namespace WindowsFormsApplication1
     class Machine : Element
     {
         public static long NbMachine;
+        private int _id;
         private int _X1;
         private int _Y1;
         private int _xGrid;
@@ -24,6 +25,11 @@ namespace WindowsFormsApplication1
         {
             get { return _imgPath; }
             set { _imgPath = value; }
+        }
+        public int id
+        {
+            get { return _id; }
+            set { _id = value; }
         }
         public int X1
         {
@@ -71,6 +77,7 @@ namespace WindowsFormsApplication1
             _sorties = new List<Element>(1);
             _entrees = new List<Element>(1);
 
+            id = (int)NbMachine;
             NbMachine += 1;
             _nom = "Machine" + NbMachine;
             _isSelected = false;
@@ -87,9 +94,17 @@ namespace WindowsFormsApplication1
             return _nom + " X:" + _xGrid + " Y:" + _yGrid;
         }
 
-        public string GetJson()
+        public string toJS()
         {
-            return JsonConvert.SerializeObject(this);
+            string sortie = "";
+            if (Sorties.Count>0 && Sorties[0] is Convoyeur)
+            {
+                sortie = "tabConvoyeur[" + Sorties[0].id + "]";
+            }
+
+            string ret = "";
+            ret += "tabStock[" + id + "]= new stockage("+xGrid*100+","+yGrid*100+",3,"+sortie+");\n";
+            return ret;
         }
     }
 }

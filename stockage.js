@@ -27,8 +27,10 @@ class stockage {
 
   sortir()
   {
-    this.objS.addBall(this.tabBall[0]);
-   
+    if(this.objS != null)
+    {
+      this.objS.addBall(this.tabBall[0]);
+    }
     this.tabBall.shift();
     this.nbBall-=1;
   }

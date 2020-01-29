@@ -10,6 +10,7 @@ namespace WindowsFormsApplication1
     class WTEG : Element
     {
         public static long NbWTEG;
+        private int _id;
         private int _X1;
         private int _Y1;
         private int _xGrid;
@@ -31,6 +32,11 @@ namespace WindowsFormsApplication1
             _imgPath = @"Images\img2.jpg";
         }
 
+        public int id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
         public string ImgPath
         {
             get { return _imgPath; }
@@ -80,7 +86,7 @@ namespace WindowsFormsApplication1
             return _nom + " X:" + _xGrid + " Y:" + _yGrid;
         }
 
-        public string GetJson()
+        public string toJS()
         {
             return JsonConvert.SerializeObject(this);
         }

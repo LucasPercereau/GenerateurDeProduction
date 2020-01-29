@@ -8,6 +8,11 @@ namespace WindowsFormsApplication1
 {
     interface Element
     {
+        int id
+        {
+            get;
+            set;
+        }
         int xGrid
         {
             get;
@@ -48,6 +53,6 @@ namespace WindowsFormsApplication1
             get;
             set;
         }
-        string GetJson();
+        string toJS();
     }
 }

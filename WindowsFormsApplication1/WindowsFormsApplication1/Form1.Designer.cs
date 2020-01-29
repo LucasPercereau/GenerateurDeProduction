@@ -42,6 +42,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.selectionElementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.machineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +57,11 @@
             this.merge2e1sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feu1e1sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wTEGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.x10ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.x20ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.x50ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -64,8 +70,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -180,11 +188,12 @@
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 4;
+            this.tableLayoutPanel4.RowCount = 5;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(175, 458);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
@@ -193,9 +202,9 @@
             this.button3.BackColor = System.Drawing.Color.Lime;
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(3, 414);
+            this.button3.Location = new System.Drawing.Point(3, 396);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(169, 41);
+            this.button3.Size = new System.Drawing.Size(169, 37);
             this.button3.TabIndex = 5;
             this.button3.Text = "Generer";
             this.button3.UseVisualStyleBackColor = false;
@@ -208,9 +217,9 @@
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(3, 232);
+            this.listBox1.Location = new System.Drawing.Point(3, 222);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(169, 131);
+            this.listBox1.Size = new System.Drawing.Size(169, 125);
             this.listBox1.TabIndex = 4;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -221,9 +230,9 @@
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(3, 369);
+            this.button2.Location = new System.Drawing.Point(3, 353);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(169, 39);
+            this.button2.Size = new System.Drawing.Size(169, 37);
             this.button2.TabIndex = 3;
             this.button2.Text = "Delete";
             this.button2.UseVisualStyleBackColor = false;
@@ -234,8 +243,8 @@
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Controls.Add(this.button1, 0, 2);
-            this.tableLayoutPanel5.Controls.Add(this.menuStrip1, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.pictureBox4, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
@@ -244,20 +253,46 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(175, 229);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(175, 219);
             this.tableLayoutPanel5.TabIndex = 6;
             // 
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(3, 185);
+            this.button1.Location = new System.Drawing.Point(3, 177);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 41);
+            this.button1.Size = new System.Drawing.Size(169, 39);
             this.button1.TabIndex = 0;
             this.button1.Text = "Liaison";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox4.Location = new System.Drawing.Point(3, 35);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(169, 136);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.menuStrip2, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.menuStrip1, 0, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(175, 32);
+            this.tableLayoutPanel6.TabIndex = 4;
             // 
             // menuStrip1
             // 
@@ -266,7 +301,7 @@
             this.selectionElementToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(175, 34);
+            this.menuStrip1.Size = new System.Drawing.Size(87, 32);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -284,9 +319,12 @@
             this.merge2e1sToolStripMenuItem,
             this.feu1e1sToolStripMenuItem,
             this.wTEGToolStripMenuItem});
+            this.selectionElementToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectionElementToolStripMenuItem.Name = "selectionElementToolStripMenuItem";
-            this.selectionElementToolStripMenuItem.Size = new System.Drawing.Size(113, 30);
-            this.selectionElementToolStripMenuItem.Text = "Selection element";
+            this.selectionElementToolStripMenuItem.Size = new System.Drawing.Size(67, 28);
+            this.selectionElementToolStripMenuItem.Text = "Elements";
+            this.selectionElementToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.selectionElementToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
             // machineToolStripMenuItem
             // 
@@ -365,14 +403,50 @@
             this.wTEGToolStripMenuItem.Text = "WTEG";
             this.wTEGToolStripMenuItem.Click += new System.EventHandler(this.wTEGToolStripMenuItem_Click);
             // 
-            // pictureBox4
+            // menuStrip2
             // 
-            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox4.Location = new System.Drawing.Point(3, 37);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(169, 142);
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
+            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.menuStrip2.Location = new System.Drawing.Point(87, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(88, 32);
+            this.menuStrip2.TabIndex = 3;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.x10ToolStripMenuItem,
+            this.x20ToolStripMenuItem,
+            this.x50ToolStripMenuItem});
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 28);
+            this.toolStripMenuItem1.Text = "Grille";
+            this.toolStripMenuItem1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            // 
+            // x10ToolStripMenuItem
+            // 
+            this.x10ToolStripMenuItem.Name = "x10ToolStripMenuItem";
+            this.x10ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.x10ToolStripMenuItem.Text = "10x10";
+            this.x10ToolStripMenuItem.Click += new System.EventHandler(this.x10ToolStripMenuItem_Click);
+            // 
+            // x20ToolStripMenuItem
+            // 
+            this.x20ToolStripMenuItem.Name = "x20ToolStripMenuItem";
+            this.x20ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.x20ToolStripMenuItem.Text = "20x20";
+            this.x20ToolStripMenuItem.Click += new System.EventHandler(this.x20ToolStripMenuItem_Click);
+            // 
+            // x50ToolStripMenuItem
+            // 
+            this.x50ToolStripMenuItem.Name = "x50ToolStripMenuItem";
+            this.x50ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.x50ToolStripMenuItem.Text = "50x50";
+            this.x50ToolStripMenuItem.Click += new System.EventHandler(this.x50ToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -394,10 +468,13 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -430,6 +507,12 @@
         private System.Windows.Forms.ToolStripMenuItem feu1e1sToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wTEGToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem x10ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem x20ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem x50ToolStripMenuItem;
     }
 }
 

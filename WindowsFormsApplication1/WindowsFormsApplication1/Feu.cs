@@ -10,6 +10,7 @@ namespace WindowsFormsApplication1
     class Feu : Element
     {
         public static long NbFeu;
+        private int _id;
         private int _X1;
         private int _Y1;
         private int _xGrid;
@@ -20,6 +21,11 @@ namespace WindowsFormsApplication1
         private bool _isSelected;
         private string _imgPath;
 
+        public int id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
         public Feu(int x1, int y1)
         {
             _X1 = x1;
@@ -80,7 +86,7 @@ namespace WindowsFormsApplication1
             return _nom + " X:" + _xGrid + " Y:" + _yGrid;
         }
 
-        public string GetJson()
+        public string toJS()
         {
             return JsonConvert.SerializeObject(this);
         }
