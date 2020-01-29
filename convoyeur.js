@@ -26,14 +26,14 @@ class convoyeur {
   {
   	let m_x = this.x;
   	let m_largeur = this.largeur;
-  	let conv = this.objS;
+  	let suiv = this.objS;
   	var self = this;
   	this.tabBall.forEach(function Coord(e){
   		if(e.x>=m_x+m_largeur)
   		{
-  			if(conv!=null)
+  			if(suiv!=null)
   			{
-  				conv.addBall(e); 
+  				suiv.addToMachine(e); 
   				self.delBall();		
   			}
   			else

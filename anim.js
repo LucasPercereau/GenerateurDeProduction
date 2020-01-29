@@ -16,6 +16,7 @@ function drawCanvas() {
   tabConvoyeur.forEach(element => element.checkBall());
 
   tabMachine.forEach(element => element.draw());
+  tabMachine.forEach(element => element.checkStock());
 
   window.requestAnimationFrame(drawCanvas);
 }

@@ -5,6 +5,7 @@ class Machine {
    	this.y=posY;
    	this.capacite=capacite;
     this.tabBall=[];
+    this.tabStock=[];
     this.objS=objS;
     this.nbBall=0;
     this.nbStock=0;
@@ -18,18 +19,33 @@ class Machine {
 
   addToMachine(ball)
   {
-    if(this.nbBall=this.capacite)
+    if(this.nbBall==this.capacite)
     {
       this.addToStock(ball);
-      this.nbStock+=1;
     }else{
-      this.tabBall[this.nbBall]=ball;
+      this.tabBall.push(ball);
       this.nbBall+=1;
+
+      setTimeout(this.sortir.bind(this), 4000);  
     }
     this.draw();
   }
 
-  sortir()
+  addToStock(ball)
+  {
+    this.tabStock[this.nbStock]=ball;
+    this.nbStock+=1;
+  }
+  checkStock()
+  {
+    if(this.nbBall<this.capacite && this.nbStock>0)
+    {
+      this.addToMachine(this.tabStock[0]);
+      this.tabStock.shift();
+      this.nbStock-=1;
+    }
+  }
+  sortir(tabBall)
   {
     if(this.objS != null)
     {

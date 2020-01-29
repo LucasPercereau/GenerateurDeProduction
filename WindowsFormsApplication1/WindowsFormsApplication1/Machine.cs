@@ -103,7 +103,7 @@ namespace WindowsFormsApplication1
             }
 
             string ret = "";
-            ret += "tabStock[" + id + "]= new stockage("+xGrid*100+","+yGrid*100+",3,"+sortie+");\n";
+            ret += "tabMachine[" + id + "]= new Machine("+xGrid*100+","+(yGrid*100-60)+",10,"+sortie+");\n";
             return ret;
         }
     }

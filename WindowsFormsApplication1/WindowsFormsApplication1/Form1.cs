@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing; 
+using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.IO;
@@ -256,8 +256,14 @@ namespace WindowsFormsApplication1
         private void button2_Click(object sender, EventArgs e)
         {
             try
-            {                              
-                _grille.LesElements.RemoveAt(listBox1.SelectedIndex);                                              
+            {
+                Element el = _grille[listBox1.SelectedIndex];               
+                if (el is Convoyeur)
+                {
+                    el.Entrees[0].Sorties.RemoveAt(0);
+                    el.Sorties[0].Entrees.RemoveAt(0);
+                }
+                _grille.LesElements.RemoveAt(listBox1.SelectedIndex);
                 _noise = true;
                 listBox1.SelectedIndex = 0;
                 _noise = false;
@@ -268,7 +274,7 @@ namespace WindowsFormsApplication1
         private void button3_Click(object sender, EventArgs e)
         {
             string js = "";
-            Element start = null;
+            Element start = _grille[0];
             foreach (Element el in _grille.LesElements)
             {           
                 if(el is ArriveeManuelle || el is ArriveePredefinie)
@@ -291,6 +297,7 @@ namespace WindowsFormsApplication1
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             if (_noise) return;
             try
             {

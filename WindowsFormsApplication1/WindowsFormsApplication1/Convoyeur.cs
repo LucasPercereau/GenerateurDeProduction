@@ -117,7 +117,7 @@ namespace WindowsFormsApplication1
             string sortie = "";
             if (Sorties.Count>0 && Sorties[0] is Machine)
             {
-                sortie = "tabStock["+ Sorties[0].id+"]";
+                sortie = "tabMachine["+ Sorties[0].id+"]";
             }
             
             string ret = "";

@@ -86,7 +86,11 @@ namespace WindowsFormsApplication1
        
         public override string ToString()
         {
-            return _nom + " X:" + _xGrid + " Y:" + _yGrid;
+            if(Sorties.Count>0)
+            {
+                return _nom + " X:" + _xGrid + " Y:" + _yGrid + "\n Sortie :" + Sorties[0].ToString();
+            }
+            return _nom + " X:" + _xGrid + " Y:" + _yGrid + "\n Sortie : NULL";
         }
 
         public string toJS()
