@@ -32,7 +32,7 @@ namespace WindowsFormsApplication1
             NbArriveeManuelle += 1;
             _nom = "Arrivee Manuelle";
             _isSelected = false;
-            _imgPath = @"Images\img1.jpg";
+            _imgPath = @"Images\Arrivee.png";
         }
 
         public string ImgPath

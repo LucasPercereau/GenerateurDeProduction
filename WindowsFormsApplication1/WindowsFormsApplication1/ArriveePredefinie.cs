@@ -30,7 +30,7 @@ namespace WindowsFormsApplication1
             NbArriveeArriveePredefinie += 1;
             _nom = "Arrivee ArriveePredefinie" + NbArriveeArriveePredefinie;
             _isSelected = false;
-            _imgPath = @"Images\img3.jpg";
+            _imgPath = @"Images\Arrivee.png";
         }
 
         public string ImgPath

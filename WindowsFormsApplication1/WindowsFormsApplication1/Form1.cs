@@ -310,12 +310,12 @@ namespace WindowsFormsApplication1
         private void machineToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CaseDraw = "ArriveeManuelle";
-            pictureBox4.Image = Image.FromFile(@"Images\img1.jpg");
+            pictureBox4.Image = Image.FromFile(@"Images\Arrivee.png");
         }
         private void arrivéePrédéfinieToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CaseDraw = "ArriveePredefinie";
-            pictureBox4.Image = Image.FromFile(@"Images\img2.jpg");
+            pictureBox4.Image = Image.FromFile(@"Images\Arrivee.png");
         }
         private void machine1e1sToolStripMenuItem_Click(object sender, EventArgs e)
         {
