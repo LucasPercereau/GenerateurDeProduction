@@ -2,8 +2,8 @@ function ball(posX,posY,vx,vy,radius) {
   this.vx = vx;
   this.vy = vy;
   this.x=posX;
- 	this.y=posY-radius/2;
- 	this.radius=radius;
+  this.y=posY-radius/2;
+  this.radius=radius;
 }
 
 ball.prototype.draw= function(color) {

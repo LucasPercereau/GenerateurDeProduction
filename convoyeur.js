@@ -1,10 +1,11 @@
-function Convoyeur(posX,posY,largeur,hauteur,objS) {
+function Convoyeur(posX,posY,largeur,hauteur,objS,linkID) {
   this.hauteur = hauteur;
   this.largeur = largeur;
   this.x=posX;
- 	this.y=posY;
- 	this.tabBall=[];
- 	this.objS = objS;
+  this.y=posY;
+  this.tabBall=[];
+  this.objS = objS;
+  this.linkID=linkID;
 }
 Convoyeur.prototype.draw = function(color) {
 	ctx.fillStyle = color;
@@ -25,19 +26,31 @@ Convoyeur.prototype.checkBall = function()
 	let m_x = this.x;
 	let m_largeur = this.largeur;
 	let suiv = this.objS;
+	let id = this.linkID;
 	var self = this;
 	this.tabBall.forEach(function Coord(e){
 		if(e.x>=m_x+m_largeur)
 		{
 			if(suiv!=null)
 			{
-				suiv.addToMachine(e); 
-				self.delBall();		
-			}
-			else
-			{
-				self.delBall();
-			}	
+				if(suiv instanceof Machine)
+				{
+					suiv.addToMachine(e);
+				}
+				if(suiv instanceof Match)
+				{
+					suiv.addToEnter(e,id);
+				}
+				if(suiv instanceof Batch)
+				{
+					suiv.Enter(e);
+				}
+				if(suiv instanceof UnBatch)
+				{
+					suiv.sortir(e);
+				}						
+			}			
+			self.delBall();				
 		}
 	});
 }

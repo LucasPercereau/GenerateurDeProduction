@@ -25,7 +25,7 @@ Machine.prototype.addToMachine= function(ball)
     this.tabBall.push(ball);
     this.nbBall+=1;
 
-    setTimeout(this.sortir.bind(this), 4000);  
+    setTimeout(this.sortir.bind(this), 2000);  
   }
   this.draw();
 }
