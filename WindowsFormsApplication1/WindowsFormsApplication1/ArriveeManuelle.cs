@@ -30,7 +30,7 @@ namespace WindowsFormsApplication1
 
             id = (int)NbArriveeManuelle;
             NbArriveeManuelle += 1;
-            _nom = "Arrivee Manuelle" + NbArriveeManuelle;
+            _nom = "Arrivee Manuelle";
             _isSelected = false;
             _imgPath = @"Images\img1.jpg";
         }
@@ -94,9 +94,8 @@ namespace WindowsFormsApplication1
         }
 
         public string toJS()
-        {           
-            string ret = "";
-            return ret;
+        {
+            return JsonConvert.SerializeObject(this);
         }
 
         ~ArriveeManuelle()

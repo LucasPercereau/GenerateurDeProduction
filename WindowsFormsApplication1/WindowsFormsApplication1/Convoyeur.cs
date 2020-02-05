@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
         private int _yGrid;
         private int _xGrid2;
         private int _yGrid2;
-        private string _nom;
+        public string _nom;
         private List<Element> _sorties;
         private List<Element> _entrees;
         private bool _isSelected;
@@ -37,7 +37,7 @@ namespace WindowsFormsApplication1
 
             id = (int)NbLignes;
             NbLignes += 1;
-            _nom = "Ligne" + NbLignes;
+            _nom = "Convoyeur";
             _isSelected = false;
             _imgPath = @"Images\img3.jpg";
         }
@@ -114,15 +114,7 @@ namespace WindowsFormsApplication1
         }
         public string toJS()
         {
-            string sortie = "";
-            if (Sorties.Count>0 && Sorties[0] is Machine)
-            {
-                sortie = "tabMachine["+ Sorties[0].id+"]";
-            }
-            
-            string ret = "";
-            ret += "tabConvoyeur["+id+"]= new convoyeur("+ xGrid*100 + ","+yGrid*100+","+(xGrid2*100-xGrid*100)+",20,"+sortie+");\n";
-            return ret;
+            return JsonConvert.SerializeObject(this);
         }
         ~Convoyeur()
         {

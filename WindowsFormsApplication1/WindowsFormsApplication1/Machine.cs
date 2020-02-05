@@ -79,7 +79,7 @@ namespace WindowsFormsApplication1
 
             id = (int)NbMachine;
             NbMachine += 1;
-            _nom = "Machine" + NbMachine;
+            _nom = "Machine";
             _isSelected = false;
             _imgPath = @"Images\img2.jpg";
         }
@@ -96,15 +96,7 @@ namespace WindowsFormsApplication1
 
         public string toJS()
         {
-            string sortie = "";
-            if (Sorties.Count>0 && Sorties[0] is Convoyeur)
-            {
-                sortie = "tabConvoyeur[" + Sorties[0].id + "]";
-            }
-
-            string ret = "";
-            ret += "tabMachine[" + id + "]= new Machine("+xGrid*100+","+(yGrid*100-60)+",10,"+sortie+");\n";
-            return ret;
+            return JsonConvert.SerializeObject(this);
         }
     }
 }

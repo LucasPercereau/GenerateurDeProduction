@@ -85,8 +85,6 @@ namespace WindowsFormsApplication1
                 {
                     prov1.Sorties.Add(el);
                     el.Sorties.Add(prov2);
-                    el.Entrees.Add(prov1);
-                    prov2.Entrees.Add(el);
                 }             
             }
             else if (el is Machine)

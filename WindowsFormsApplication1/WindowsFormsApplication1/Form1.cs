@@ -273,26 +273,17 @@ namespace WindowsFormsApplication1
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            string js = "";
+            string json = "";
             Element start = _grille[0];
             foreach (Element el in _grille.LesElements)
             {           
                 if(el is ArriveeManuelle || el is ArriveePredefinie)
                 {
-                    start = el;
-                    js = el.toJS() +js;
-                    start = el.Sorties[0];
+                    json += el.toJS();
                     break;
                 }                                              
             }
-            for(int i=0;i<_grille.LesElements.Count-1;i++)
-            {
-                js = start.toJS() + js;
-                if(start.Sorties.Count>0)
-                { start = start.Sorties[0]; }               
-            }
-            js += "drawCanvas();";
-            File.WriteAllText("../../../../Generation.js", js);
+            File.WriteAllText("../../../../Generation.JSON", json);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
