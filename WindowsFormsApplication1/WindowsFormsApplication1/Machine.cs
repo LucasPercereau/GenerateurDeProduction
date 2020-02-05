@@ -81,7 +81,7 @@ namespace WindowsFormsApplication1
             NbMachine += 1;
             _nom = "Machine";
             _isSelected = false;
-            _imgPath = @"Images\img2.jpg";
+            _imgPath = @"Images\machine.png";
         }
 
         ~Machine()

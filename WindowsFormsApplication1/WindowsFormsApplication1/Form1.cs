@@ -320,7 +320,7 @@ namespace WindowsFormsApplication1
         private void machine1e1sToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CaseDraw = "Machine";
-            pictureBox4.Image = Image.FromFile(@"Images\img3.jpg");
+            pictureBox4.Image = Image.FromFile(@"Images\machine.png");
         }
         private void match2e1sToolStripMenuItem_Click(object sender, EventArgs e)
         {
