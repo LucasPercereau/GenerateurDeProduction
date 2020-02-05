@@ -1,5 +1,5 @@
-tabMachine[1]= new Machine(700,240,10,);
-tabConvoyeur[2]= new convoyeur(400,300,300,20,tabMachine[1]);
-tabMachine[2]= new Machine(400,240,10,tabConvoyeur[2]);
-tabConvoyeur[4]= new convoyeur(0,300,400,20,tabMachine[2]);
+tabMachine[0]= new Machine(600,240,10,);
+tabConvoyeur[0]= new Convoyeur(250,300,300,20,tabMachine[0]);
+tabArriveeManuelle[0] = new ArriveeManuelle(200,240,"tabArriveeManuelle[0]",tabConvoyeur[0]);
+
 drawCanvas();
