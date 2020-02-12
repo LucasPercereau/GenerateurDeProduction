@@ -11,11 +11,13 @@ function ArriveeManuelle(posX,posY,firstElement,objS) {
 
     var body = document.getElementsByTagName("header")[0];
     body.appendChild(input);
-  }
+}
 
 ArriveeManuelle.prototype.draw = function(){
-  ctx.fillRect(this.x, this.y, 30, 50);
-  ctx.fillRect(this.x-20, this.y+40, 20, 10);   
+  ctx.fillRect(this.x-20, this.y, 30, 10);  
+  ctx.fillRect(this.x, this.y-20, 10, 30);
+  ctx.fillRect(this.x-20, this.y-20, 30, 10);
+  ctx.fillRect(this.x-20, this.y-20, 10, 30); 
 }
   
 ArriveeManuelle.prototype.CreateBall = function()

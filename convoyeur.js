@@ -48,6 +48,18 @@ Convoyeur.prototype.checkBall = function()
 				if(suiv instanceof UnBatch)
 				{
 					suiv.sortir(e);
+				}
+				if(suiv instanceof Mux)
+				{
+					suiv.addToBuffer(e,id);
+				}	
+				if(suiv instanceof Merge)
+				{
+					suiv.sortir(e);
+				}
+				if(suiv instanceof Feu)
+				{
+					suiv.enter(e);
 				}						
 			}			
 			self.delBall();				

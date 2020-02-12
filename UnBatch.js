@@ -17,7 +17,7 @@ UnBatch.prototype.sortir= function()
     let objS = this.objS;
     for(i=0;i<this.tailleLot;i++)
     {
-      setTimeout(function(){objS.addBall(new ball(10,10,3,0,10));},i*500);   
+      objS.addBall(new ball(10,10,3,0,10));   
     }  
   }
 }
