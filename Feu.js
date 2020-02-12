@@ -1,4 +1,4 @@
-function Feu(posX,posY,tmpsV,tmpsR,objS){
+function Feu(posX,posY,tmpsV,tmpsR,objS,linkID){
   this.x=posX;
   this.y=posY;
   this.objS=objS;
@@ -8,19 +8,29 @@ function Feu(posX,posY,tmpsV,tmpsR,objS){
   this.buffer=[];
   this.cpt=0;
   this.doOnce=0;
+  this.linkID =linkID;
 }
 
 Feu.prototype.draw = function() {
   
-  ctx.fillRect(this.x, this.y, 20, 70);
-  if(this.bool === "V") {ctx.fillText("[FEU VERT]", this.x-10,this.y-36);}
-  if(this.bool === "R") {ctx.fillText("[FEU ROUGE]", this.x-10,this.y-36);} 
-  ctx.fillText(this.cpt, this.x+7,this.y-10);
+  //
+  if(this.bool === "V") {this.drawFeu("green");}
+  if(this.bool === "R") {this.drawFeu("red");} 
+  ctx.fillText(this.cpt, this.x+7,this.y-25);
   this.check();
   if(this.doOnce===0) {this.FeuRouge(); this.doOnce=1;}
 }
+Feu.prototype.drawFeu = function(color) {
+  ctx.lineWidth='20';
+  ctx.strokeStyle=color;
+  ctx.beginPath();
+  ctx.moveTo(this.x+10,this.y-20);
+  ctx.lineTo(this.x+10,this.y+20);
+  ctx.stroke();
+  ctx.fillRect(this.x+5, this.y+20, 10, 20);
+}
 
-Feu.prototype.enter = function(ball) {
+Feu.prototype.ProductArrive = function(ball) {
   this.buffer.push(ball);
   this.cpt++;
 }
@@ -50,37 +60,16 @@ Feu.prototype.sortir= function(ball)
 {
   if(this.objS!=null)
   {
-    if(this.objS instanceof Convoyeur)
-    {
-      this.objS.addBall(ball);
-    }
-    if(this.objS instanceof Machine)
-    {
-      this.objS.addToMachine(ball);
-    }
     if(this.objS instanceof Match)
     {
-      this.objS.addToEnter(ball,id);
+      this.objS.ProductArrive(ball,this.linkID);
+    }else if(this.objS instanceof Mux)
+    {
+      this.objS.ProductArrive(ball,this.linkID);
     }
-    if(this.objS instanceof Batch)
+    else
     {
-      this.objS.Enter(ball);
-    }
-    if(this.objS instanceof UnBatch)
-    {
-      this.objS.sortir(ball);
-    }
-    if(this.objS instanceof Mux)
-    {
-      this.objS.addToBuffer(ball,id);
-    } 
-    if(this.objS instanceof Merge)
-    {
-      this.objS.sortir(ball);
-    }
-    if(this.objS instanceof Feu)
-    {
-      this.objS.enter(ball);
-    }           
+      this.objS.ProductArrive(ball);
+    }                 
   }   
 }

@@ -1,8 +1,9 @@
-function ArriveeManuelle(posX,posY,firstElement,objS) {
+function ArriveeManuelle(posX,posY,firstElement,objS,linkID) {
 
     this.x=posX;
     this.y=posY;
     this.objS=objS;
+    this.linkID=linkID;
 
     var input = document.createElement("input");
     input.type = "button";
@@ -22,5 +23,5 @@ ArriveeManuelle.prototype.draw = function(){
   
 ArriveeManuelle.prototype.CreateBall = function()
 {
-  this.objS.addBall(new ball(this.objS.x,this.objS.y,3,0,10));
+  this.objS.ProductArrive(new ball(this.objS.x,this.objS.y,3,0,10));
 }

@@ -1,4 +1,4 @@
-function Machine(posX,posY,capacite,objS){
+function Machine(posX,posY,capacite,objS,linkID){
   this.x=posX;
  	this.y=posY;
  	this.capacite=capacite;
@@ -7,6 +7,7 @@ function Machine(posX,posY,capacite,objS){
   this.objS=objS;
   this.nbBall=0;
   this.nbStock=0;
+  this.linkID=linkID;
 }
 
 Machine.prototype.draw = function() {
@@ -14,9 +15,10 @@ Machine.prototype.draw = function() {
   ctx.fillRect(this.x-20, this.y+40, 20, 10);
   ctx.fillText(this.nbBall+"/"+this.capacite, this.x,this.y-5);
   ctx.fillText(this.nbStock, this.x-15,this.y+60);
+  this.checkStock();
 }
 
-Machine.prototype.addToMachine= function(ball)
+Machine.prototype.ProductArrive= function(ball)
 {
   if(this.nbBall==this.capacite)
   {
@@ -46,9 +48,19 @@ Machine.prototype.checkStock= function()
 }
 Machine.prototype.sortir= function(tabBall)
 {
-  if(this.objS != null)
+  if(this.objS!=null)
   {
-    this.objS.addBall(this.tabBall[0]);
+    if(this.objS instanceof Match)
+    {
+      this.objS.ProductArrive(this.tabBall[0],this.linkID);
+    }else if(this.objS instanceof Mux)
+    {
+      this.objS.ProductArrive(this.tabBall[0],this.linkID);
+    }
+    else
+    {
+      this.objS.ProductArrive(this.tabBall[0]);
+    }                 
   }
   this.tabBall.shift();
   this.nbBall-=1;

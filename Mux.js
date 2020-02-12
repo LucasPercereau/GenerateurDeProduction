@@ -1,4 +1,4 @@
-function Mux(posX,posY,sequence,objS){
+function Mux(posX,posY,sequence,objS,linkID){
   this.x=posX;
   this.y=posY;
   this.sequence=sequence;
@@ -8,6 +8,7 @@ function Mux(posX,posY,sequence,objS){
   this.compteur=0;
   this.nbStock1=0;
   this.nbStock2=0;
+  this.linkID=linkID;
 }
 
 Mux.prototype.draw = function() {
@@ -19,7 +20,7 @@ Mux.prototype.draw = function() {
   this.check();
 }
 
-Mux.prototype.addToBuffer = function(ball,id){  
+Mux.prototype.ProductArrive = function(ball,id){  
   
   if(id==1) 
   {    
@@ -57,8 +58,18 @@ Mux.prototype.check= function(ball)
 }
 Mux.prototype.sortir= function(ball)
 {
-  if(this.objS != null)
+  if(this.objS!=null)
   {
-    this.objS.addBall(ball);
+    if(this.objS instanceof Match)
+    {
+      this.objS.ProductArrive(ball,this.linkID);
+    }else if(this.objS instanceof Mux)
+    {
+      this.objS.ProductArrive(ball,this.linkID);
+    }
+    else
+    {
+      this.objS.ProductArrive(ball);
+    }                 
   }
 }

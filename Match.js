@@ -1,4 +1,4 @@
-function Match(posX,posY,objS){
+function Match(posX,posY,objS,linkID){
   this.x=posX;
  	this.y=posY;
   this.tabStock=[];
@@ -9,6 +9,7 @@ function Match(posX,posY,objS){
   this.Buffer2=[];
   this.entre1=null;
   this.entre2=null;
+  this.linkID=linkID;
 }
 
 Match.prototype.draw = function() {
@@ -18,6 +19,7 @@ Match.prototype.draw = function() {
   ctx.fillText(this.nbStock2, this.x-15,this.y+45);
   if(this.entre1!=null) {ctx.fillText("1", this.x+15,this.y-10);}
   if(this.entre2!=null) {ctx.fillText("1", this.x+15,this.y+65);}
+  this.check();
 }
 
 Match.prototype.check= function()
@@ -27,13 +29,13 @@ Match.prototype.check= function()
     this.sortir();
     if(this.nbStock1>0) 
     {
-      this.addToEnter(this.Buffer1=[0],1);
+      this.ProductArrive(this.Buffer1=[0],1);
       this.Buffer1.shift();
       this.nbStock1-=1;
     }
     if(this.nbStock2>0) 
     {
-      this.addToEnter(this.Buffer2=[0],2);
+      this.ProductArrive(this.Buffer2=[0],2);
       this.Buffer2.shift();
       this.nbStock2-=1;
     }
@@ -53,7 +55,7 @@ Match.prototype.addBuff= function(ball,id)
     this.nbStock2 +=1;
   }
 }
-Match.prototype.addToEnter= function(ball,id)
+Match.prototype.ProductArrive= function(ball,id)
 {
 
   if(id===1) 
@@ -75,9 +77,19 @@ Match.prototype.addToEnter= function(ball,id)
 }
 Match.prototype.sortir= function()
 {
-  if(this.objS != null)
+  if(this.objS!=null)
   {
-    this.objS.addBall(new ball(10,10,3,0,10));
+    if(this.objS instanceof Match)
+    {
+      this.objS.ProductArrive(new ball(10,10,3,0,10),this.linkID);
+    }else if(this.objS instanceof Mux)
+    {
+      this.objS.ProductArrive(new ball(10,10,3,0,10),this.linkID);
+    }
+    else
+    {
+      this.objS.ProductArrive(new ball(10,10,3,0,10));
+    }                 
   }
   this.entre1=null;
   this.entre2=null;

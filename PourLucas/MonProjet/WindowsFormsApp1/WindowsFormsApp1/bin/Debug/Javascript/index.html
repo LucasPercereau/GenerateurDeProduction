@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Super generateur</title>
+</head>
+<body>
+	<header></header>
+	<div id="Loading" name="Loading">
+	<label for="mjson">Choisir un fichier Json</label>
+	<input type="file" id="Json" name="Json" accept="application/json"/>
+	</div>
+	
+	<button id="addBall" onClick="addBall()" style="display: none">addBall</button>
+	<canvas id="default" width="950" height="950">
+  		Votre navigateur ne prend pas en charge canvas !!
+	</canvas>
+	<img src="machine.png" id="myImg" style="display : none" >
+	<script src="convoyeur.js"></script>
+	<script src="ball.js"></script>
+	<script src="Machine.js"></script>	
+	<script src="ArriveeManuelle.js"></script>
+	<script src="Routage.js"></script>
+	<script src="anim.js"></script>
+</body>
+</html>

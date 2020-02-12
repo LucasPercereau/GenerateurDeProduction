@@ -1,20 +1,31 @@
-function Convoyeur(posX,posY,largeur,hauteur,objS,linkID) {
-  this.hauteur = hauteur;
-  this.largeur = largeur;
-  this.x=posX;
-  this.y=posY;
+function Convoyeur(posX,posY,posX2,posY2,objS,linkID) {
+  this.X1 = posX;
+  this.Y1 = posY;
+  this.X2 = posX2;
+  this.Y2 = posY2;
   this.tabBall=[];
   this.objS = objS;
   this.linkID=linkID;
 }
 Convoyeur.prototype.draw = function(color) {
-	ctx.fillStyle = color;
-  ctx.fillRect(this.x, this.y, this.largeur, this.hauteur);
+  this.drawLine(color);
+  this.drawAllBall();
+  this.avance();
+  this.checkBall();
+}
+Convoyeur.prototype.drawLine = function(color) {
+  ctx.lineWidth='8';
+  ctx.strokeStyle='green';
+  ctx.beginPath();
+  ctx.moveTo(this.X1,this.Y1);
+  ctx.lineTo(this.X2,this.Y2);
+  ctx.stroke();
 }
 
-Convoyeur.prototype.addBall = function(ball){
-	ball.x=this.x;
-	ball.y=this.y-ball.radius/2;
+
+Convoyeur.prototype.ProductArrive = function(ball){
+	ball.x=this.X1;
+	ball.y=this.Y1-ball.radius/2;
 	this.tabBall.push(ball);
 }
 Convoyeur.prototype.delBall = function()
@@ -23,8 +34,8 @@ Convoyeur.prototype.delBall = function()
 }
 Convoyeur.prototype.checkBall = function()
 {
-	let m_x = this.x;
-	let m_largeur = this.largeur;
+	let m_x = this.X1;
+	let m_largeur = this.X2-this.X1;
 	let suiv = this.objS;
 	let id = this.linkID;
 	var self = this;
@@ -33,34 +44,18 @@ Convoyeur.prototype.checkBall = function()
 		{
 			if(suiv!=null)
 			{
-				if(suiv instanceof Machine)
-				{
-					suiv.addToMachine(e);
-				}
 				if(suiv instanceof Match)
 				{
-					suiv.addToEnter(e,id);
+					suiv.ProductArrive(e,id);
 				}
-				if(suiv instanceof Batch)
-				{
-					suiv.Enter(e);
-				}
-				if(suiv instanceof UnBatch)
-				{
-					suiv.sortir(e);
-				}
+							
 				if(suiv instanceof Mux)
 				{
-					suiv.addToBuffer(e,id);
-				}	
-				if(suiv instanceof Merge)
+					suiv.ProductArrive(e,id);
+				}else
 				{
-					suiv.sortir(e);
-				}
-				if(suiv instanceof Feu)
-				{
-					suiv.enter(e);
-				}						
+					suiv.ProductArrive(e);
+				}									
 			}			
 			self.delBall();				
 		}
