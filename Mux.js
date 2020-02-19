@@ -1,4 +1,5 @@
-function Mux(posX,posY,sequence,objS,linkID){
+function Mux(ID,posX,posY,sequence,objS,linkID){
+  this.ID=ID;
   this.x=posX;
   this.y=posY;
   this.sequence=sequence;
@@ -18,6 +19,9 @@ Mux.prototype.draw = function() {
   ctx.fillText(this.nbStock2, this.x-15,this.y+65);
   ctx.fillText("["+this.sequence+"]", this.x-50,this.y+36);
   this.check();
+}
+Mux.prototype.SetSuiv = function(obj){
+  this.objS = obj;
 }
 
 Mux.prototype.ProductArrive = function(ball,id){  

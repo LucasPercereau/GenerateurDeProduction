@@ -1,4 +1,5 @@
-function Batch(posX,posY,tailleLot,objS,linkID){
+function Batch(ID,posX,posY,tailleLot,objS,linkID){
+  this.ID=ID;
   this.x=posX;
  	this.y=posY;
   this.tailleLot = tailleLot;
@@ -11,6 +12,9 @@ function Batch(posX,posY,tailleLot,objS,linkID){
 Batch.prototype.draw = function() {
   ctx.fillRect(this.x, this.y, 30, 50);
   ctx.fillText(this.nbStock+" / "+this.tailleLot, this.x+5,this.y-10);
+}
+Batch.prototype.SetSuiv = function(obj){
+  this.objS = obj;
 }
 
 Batch.prototype.check= function()

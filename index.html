@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
 	<title>Super generateur</title>
 </head>
 <body>
 	<header></header>
+	<div id="Loading" name="Loading">
+	<label for="mjson">Choisir un fichier Json</label>
+	<input type="file" id="Json" name="Json" accept="application/json"/>
+	</div>
 	<canvas id="test" width="1500" height="1500">
   		Votre navigateur ne prend pas en charge canvas !!
 	</canvas>
@@ -20,6 +24,5 @@
 	<script src="Machine.js"></script>
 	<script src="Batch.js"></script>
 	<script src="anim.js"></script>
-	<script src="Generation.js"></script>
 </body>
 </html>

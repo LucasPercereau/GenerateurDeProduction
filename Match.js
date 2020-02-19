@@ -1,4 +1,5 @@
-function Match(posX,posY,objS,linkID){
+function Match(ID,posX,posY,objS,linkID){
+  this.ID=ID;
   this.x=posX;
  	this.y=posY;
   this.tabStock=[];
@@ -20,6 +21,9 @@ Match.prototype.draw = function() {
   if(this.entre1!=null) {ctx.fillText("1", this.x+15,this.y-10);}
   if(this.entre2!=null) {ctx.fillText("1", this.x+15,this.y+65);}
   this.check();
+}
+Match.prototype.SetSuiv = function(obj){
+  this.objS = obj;
 }
 
 Match.prototype.check= function()

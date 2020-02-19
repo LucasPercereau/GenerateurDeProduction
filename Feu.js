@@ -1,4 +1,5 @@
-function Feu(posX,posY,tmpsV,tmpsR,objS,linkID){
+function Feu(ID,posX,posY,tmpsV,tmpsR,objS,linkID){
+  this.ID=ID;
   this.x=posX;
   this.y=posY;
   this.objS=objS;
@@ -28,6 +29,9 @@ Feu.prototype.drawFeu = function(color) {
   ctx.lineTo(this.x+10,this.y+20);
   ctx.stroke();
   ctx.fillRect(this.x+5, this.y+20, 10, 20);
+}
+Feu.prototype.SetSuiv = function(obj){
+  this.objS = obj;
 }
 
 Feu.prototype.ProductArrive = function(ball) {

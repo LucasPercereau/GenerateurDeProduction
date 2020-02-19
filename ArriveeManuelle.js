@@ -1,5 +1,6 @@
-function ArriveeManuelle(posX,posY,firstElement,objS,linkID) {
+function ArriveeManuelle(ID,posX,posY,firstElement,objS,linkID) {
 
+    this.ID=ID;
     this.x=posX;
     this.y=posY;
     this.objS=objS;
@@ -19,6 +20,9 @@ ArriveeManuelle.prototype.draw = function(){
   ctx.fillRect(this.x, this.y-20, 10, 30);
   ctx.fillRect(this.x-20, this.y-20, 30, 10);
   ctx.fillRect(this.x-20, this.y-20, 10, 30); 
+}
+ArriveeManuelle.prototype.SetSuiv = function(obj){
+  this.objS = obj;
 }
   
 ArriveeManuelle.prototype.CreateBall = function()

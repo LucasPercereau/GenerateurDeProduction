@@ -1,4 +1,5 @@
-function Merge(posX,posY,objS,linkID){
+function Merge(ID,posX,posY,objS,linkID){
+  this.ID=ID;
   this.x=posX;
   this.y=posY;
   this.objS=objS;
@@ -9,6 +10,9 @@ Merge.prototype.draw = function() {
   ctx.fillRect(this.x, this.y, 20, 70);
   ctx.fillRect(this.x+5, this.y+25, 30, 15);
   ctx.fillText("[MERGE]", this.x-50,this.y+36);
+}
+Merge.prototype.SetSuiv = function(obj){
+  this.objS = obj;
 }
 
 Merge.prototype.ProductArrive= function(ball)

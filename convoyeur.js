@@ -1,4 +1,5 @@
-function Convoyeur(posX,posY,posX2,posY2,objS,linkID) {
+function Convoyeur(ID,posX,posY,posX2,posY2,objS,linkID) {
+  this.ID=ID;
   this.X1 = posX;
   this.Y1 = posY;
   this.X2 = posX2;
@@ -20,6 +21,9 @@ Convoyeur.prototype.drawLine = function(color) {
   ctx.moveTo(this.X1,this.Y1);
   ctx.lineTo(this.X2,this.Y2);
   ctx.stroke();
+}
+Convoyeur.prototype.SetSuiv = function(obj){
+  this.objS = obj;
 }
 
 

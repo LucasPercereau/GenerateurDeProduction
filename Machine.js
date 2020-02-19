@@ -1,4 +1,5 @@
-function Machine(posX,posY,capacite,objS,linkID){
+function Machine(ID,posX,posY,capacite,objS,linkID){
+  this.ID=ID;
   this.x=posX;
  	this.y=posY;
  	this.capacite=capacite;
@@ -16,6 +17,9 @@ Machine.prototype.draw = function() {
   ctx.fillText(this.nbBall+"/"+this.capacite, this.x,this.y-5);
   ctx.fillText(this.nbStock, this.x-15,this.y+60);
   this.checkStock();
+}
+Machine.prototype.SetSuiv = function(obj){
+  this.objS = obj;
 }
 
 Machine.prototype.ProductArrive= function(ball)
@@ -41,7 +45,7 @@ Machine.prototype.checkStock= function()
 {
   if(this.nbBall<this.capacite && this.nbStock>0)
   {
-    this.addToMachine(this.tabStock[0]);
+    this.ProductArrive(this.tabStock[0]);
     this.tabStock.shift();
     this.nbStock-=1;
   }
