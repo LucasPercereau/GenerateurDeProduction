@@ -21,6 +21,9 @@ Machine.prototype.draw = function() {
 Machine.prototype.SetSuiv = function(obj){
   this.objS = obj;
 }
+Machine.prototype.SetLinkId = function(id){
+  this.linkID=id;
+}
 
 Machine.prototype.ProductArrive= function(ball)
 {

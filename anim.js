@@ -14,7 +14,14 @@ var tabMerge = [];
 var tabFeu = [];
 var tabElem=[];
 var json="";
+let framesPerSecond = 60;
 
+var stop = false;
+var frameCount = 0;
+var fps, fpsInterval, startTime, now, then, elapsed;
+
+///////////////////////////////
+//////////PROGRAMME////////////
 ///////////////////////////////
 Json.onchange = readJSON;
 
@@ -65,7 +72,7 @@ function GenerateFromJson(){
 			tabRouter[tabRouter.length]=new Router(value.id,value.X,value.Y,[1,0,1,1],null,null,1); 
 			break;
 		case 'Mux':
-			tabMux[tabMux.length]=new Mux(value.id,value.X,value.Y,[1,0,1,1],null,1); 
+			tabMux[tabMux.length]=new Mux(value.id,value.X,value.Y,[0,0,0],null,1); 
 			break;
 		case 'Merge':
 			tabMerge[tabMerge.length]=new Merge(value.id,value.X,value.Y,null,1); 
@@ -74,43 +81,49 @@ function GenerateFromJson(){
 			tabFeu[tabFeu.length]=new Feu(value.id,value.X,value.Y,2000,3000,null,1); 
 			break;
 		case 'Convoyeur':
-			tabConvoyeur[tabConvoyeur.length]=new Convoyeur(value.id,value.X,value.Y,value.X+200,value.Y,null,1); 
+			tabConvoyeur[tabConvoyeur.length]=new Convoyeur(value.id,value.X,value.Y,value.X+200,value.Y,2,null,1); 
 			break;	
 		case 'WTEG':
 			break;
 		case 'liaison':
 			if(tabElem.length===0)
-			{tabElem.push(tabConvoyeur,tabStock,tabMux,tabRouter,tabUnBatch,tabArriveeManuelle,tabRouter,tabMachine,tabMerge,tabBatch,tabFeu);}		
-			break;
-		default:
-			break;
-	}
-	});
-	json.forEach(function(value){
-		const name = value.name;
-		switch (name) {		
-		case 'liaison':
+			{tabElem.push(tabConvoyeur,tabStock,tabMux,tabRouter,tabUnBatch,tabArriveeManuelle,tabRouter,tabMachine,tabMerge,tabBatch,tabFeu);}
 			var ElementProv1 =null;
 			var ElementProv2 =null;
 			tabElem.forEach(element => element.forEach(function(element){if (element.ID===value.element1){ElementProv1=element} }   ));
 			tabElem.forEach(element => element.forEach(function(element){if (element.ID===value.element2){ElementProv2=element} }   ));
 
-			ElementProv1.SetSuiv(ElementProv2);
+			ElementProv1.SetSuiv(ElementProv2,value.element1Id);
+			if(value.element2Id!=1)
+			{
+				ElementProv1.SetLinkId(value.element2Id);
+			}		
 			break;
 		default:
 			break;
 	}
 	});
-	console.log(tabMachine[0]);
-	console.log(tabMachine[1]);
+	
+	fpsInterval = 1000 / 60;
+    then = Date.now();
+    startTime = then;
+
 	drawCanvas();
 }
 ///////////////////////////////
 
 function drawCanvas() {
-  ctx.clearRect(0,0, canvas.width, canvas.height);
-  
-  tabElem.forEach(element => element.forEach(element => element.draw()));
+ 
 
-  window.requestAnimationFrame(drawCanvas);
+  	window.requestAnimationFrame(drawCanvas);
+
+  	now = Date.now();
+    elapsed = now - then;
+
+    if (elapsed > fpsInterval) {
+        then = now - (elapsed % fpsInterval);
+
+        ctx.clearRect(0,0, canvas.width, canvas.height);
+  		tabElem.forEach(element => element.forEach(element => element.draw()));
+    }
 }

@@ -33,6 +33,9 @@ Feu.prototype.drawFeu = function(color) {
 Feu.prototype.SetSuiv = function(obj){
   this.objS = obj;
 }
+Feu.prototype.SetLinkId = function(id){
+  this.linkID=id;
+}
 
 Feu.prototype.ProductArrive = function(ball) {
   this.buffer.push(ball);

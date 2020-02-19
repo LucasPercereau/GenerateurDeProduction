@@ -1,9 +1,10 @@
-function Convoyeur(ID,posX,posY,posX2,posY2,objS,linkID) {
+function Convoyeur(ID,posX,posY,posX2,posY2,duree,objS,linkID) {
   this.ID=ID;
   this.X1 = posX;
   this.Y1 = posY;
   this.X2 = posX2;
   this.Y2 = posY2;
+  this.duree=duree;
   this.tabBall=[];
   this.objS = objS;
   this.linkID=linkID;
@@ -25,7 +26,15 @@ Convoyeur.prototype.drawLine = function(color) {
 Convoyeur.prototype.SetSuiv = function(obj){
   this.objS = obj;
 }
+Convoyeur.prototype.SetLinkId = function(id){
+  this.linkID=id;
+}
 
+Convoyeur.prototype.avance = function()
+{
+	var nb = ((this.X2-this.X1)/this.duree)/60
+	this.tabBall.forEach(function Coord(e){e.x+=nb;});
+}
 
 Convoyeur.prototype.ProductArrive = function(ball){
 	ball.x=this.X1;
@@ -71,8 +80,5 @@ Convoyeur.prototype.drawAllBall = function()
 	this.tabBall.forEach(function Coord(e){e.draw();});
 }
 
-Convoyeur.prototype.avance = function()
-{
-	this.tabBall.forEach(function Coord(e){e.x+=e.vx;});
-}
+
 

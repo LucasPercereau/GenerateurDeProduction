@@ -14,6 +14,9 @@ Merge.prototype.draw = function() {
 Merge.prototype.SetSuiv = function(obj){
   this.objS = obj;
 }
+Merge.prototype.SetLinkId = function(id){
+  this.linkID=id;
+}
 
 Merge.prototype.ProductArrive= function(ball)
 {

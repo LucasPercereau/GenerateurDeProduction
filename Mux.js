@@ -23,6 +23,9 @@ Mux.prototype.draw = function() {
 Mux.prototype.SetSuiv = function(obj){
   this.objS = obj;
 }
+Mux.prototype.SetLinkId = function(id){
+  this.linkID=id;
+}
 
 Mux.prototype.ProductArrive = function(ball,id){  
   

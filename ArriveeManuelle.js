@@ -24,6 +24,9 @@ ArriveeManuelle.prototype.draw = function(){
 ArriveeManuelle.prototype.SetSuiv = function(obj){
   this.objS = obj;
 }
+ArriveeManuelle.prototype.SetLinkId = function(id){
+  this.linkID=id;
+}
   
 ArriveeManuelle.prototype.CreateBall = function()
 {

@@ -25,6 +25,9 @@ Match.prototype.draw = function() {
 Match.prototype.SetSuiv = function(obj){
   this.objS = obj;
 }
+Match.prototype.SetLinkId = function(id){
+  this.linkID=id;
+}
 
 Match.prototype.check= function()
 {

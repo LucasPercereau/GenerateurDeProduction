@@ -14,6 +14,9 @@ UnBatch.prototype.draw = function() {
 UnBatch.prototype.SetSuiv = function(obj){
   this.objS = obj;
 }
+UnBatch.prototype.SetLinkId = function(id){
+  this.linkID=id;
+}
 
 UnBatch.prototype.ProductArrive= function(ball)
 {

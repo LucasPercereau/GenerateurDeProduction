@@ -58,6 +58,17 @@ F:\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
 F:\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form3.resources
 F:\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
 F:\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.Cache
-C:\Users\usrlocal\Downloads\GenerateurDeProduction\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
-C:\Users\usrlocal\Downloads\GenerateurDeProduction\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
-C:\Users\usrlocal\Downloads\GenerateurDeProduction\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\usrlocal\Downloads\GenerateurDeProduction\WindowsFormsApp1 - Copie\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\usrlocal\Downloads\GenerateurDeProduction\WindowsFormsApp1 - Copie\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\usrlocal\Downloads\GenerateurDeProduction\WindowsFormsApp1 - Copie\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\usrlocal\Downloads\GenerateurDeProduction\WindowsFormsApp1 - Copie\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\usrlocal\Downloads\GenerateurDeProduction\WindowsFormsApp1 - Copie\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\usrlocal\Downloads\GenerateurDeProduction\WindowsFormsApp1 - Copie\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\usrlocal\Downloads\GenerateurDeProduction\WindowsFormsApp1 - Copie\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\usrlocal\Downloads\GenerateurDeProduction\WindowsFormsApp1 - Copie\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojResolveAssemblyReference.cache
+C:\Users\usrlocal\Downloads\GenerateurDeProduction\WindowsFormsApp1 - Copie\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Element.resources
+C:\Users\usrlocal\Downloads\GenerateurDeProduction\WindowsFormsApp1 - Copie\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\usrlocal\Downloads\GenerateurDeProduction\WindowsFormsApp1 - Copie\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
+C:\Users\usrlocal\Downloads\GenerateurDeProduction\WindowsFormsApp1 - Copie\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form3.resources
+C:\Users\usrlocal\Downloads\GenerateurDeProduction\WindowsFormsApp1 - Copie\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\usrlocal\Downloads\GenerateurDeProduction\WindowsFormsApp1 - Copie\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.Cache

@@ -16,6 +16,9 @@ Batch.prototype.draw = function() {
 Batch.prototype.SetSuiv = function(obj){
   this.objS = obj;
 }
+Batch.prototype.SetLinkId = function(id){
+  this.linkID=id;
+}
 
 Batch.prototype.check= function()
 {

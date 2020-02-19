@@ -12,6 +12,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Reflection;
 using System.Dynamic;
+using System.Text.RegularExpressions;
 
 namespace WindowsFormsApp1
 {
@@ -216,7 +217,11 @@ namespace WindowsFormsApp1
                 myObject.name = "liaison";
                 myObject.element1 = tab[0];
                 myObject.element2 = tab[1];
+                myObject.element1Id = tab[2]+1;
+                myObject.element2Id = tab[3]+1;
                 list.Add(myObject);
+                Console.WriteLine(myObject.element1Id);
+                Console.WriteLine(myObject.element2Id);
             }
             string json = JsonConvert.SerializeObject(list);
             
@@ -277,12 +282,7 @@ namespace WindowsFormsApp1
             _elementdepartLigne = element;
             _debutLigne = (Button)sender;  //faire autrement pour être sur que le trait suive l'element 
             foreach(Element el in _elements)
-            {/*
-               Button button = (Button)el.Controls.Find("button1", true).First();
-                if(el.Controls.Find("button1", true).First() != null)
-                {
-                    button.Enabled = false;
-                }*/
+            {
                 try
                 {
                     foreach (Button b in el.TabSortie)
@@ -301,11 +301,6 @@ namespace WindowsFormsApp1
             _elementdepartLigne = null;
             foreach (Element el in _elements)
             {
-                /*Button button = (Button)el.Controls.Find("button1", true).First();
-                if (el.Controls.Find("button1", true).First() != null)
-                {
-                    button.Enabled = true;
-                }*/
                 try
                 {
                    foreach(Button b in el.TabSortie)
@@ -355,9 +350,23 @@ namespace WindowsFormsApp1
 
         public void SaveLinking(object sender)
         {
+            int element1id = 0;
+            int element2id = 0;
             Point point = new Point(_debutLigne.Location.X + (_debutLigne.Parent).Location.X + (_debutLigne.Width / 2), (_debutLigne.Location.Y + ((_debutLigne.Parent).Location.Y + (_debutLigne.Height / 2))));
             _lignes.Add(new Button[2] { _debutLigne, (Button)sender });
-            _liaisons.Add(new int[2] { _elementdepartLigne.ID, ((Element)(((Button)sender).Parent)).ID });
+            try
+            {
+                string resultString = Regex.Match(_debutLigne.Name, @"\d+").Value;
+                element1id = System.Convert.ToInt32(resultString);
+                resultString = Regex.Match(((Button)sender).Name, @"\d+").Value;
+                element2id = System.Convert.ToInt32(resultString);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            _liaisons.Add(new int[4] { _elementdepartLigne.ID, ((Element)(((Button)sender).Parent)).ID,element1id, element2id});
             QuitLinking();
         }
 

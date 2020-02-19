@@ -14,8 +14,8 @@ Router.prototype.draw = function() {
   ctx.fillRect(this.x-20, this.y+25, 30, 15);
   ctx.fillText("["+this.dispersion+"]", this.x+25,this.y+36);
 }
-Router.prototype.SetSuiv = function(obj){
-  if(this.objS1===null)
+Router.prototype.SetSuiv = function(obj,idE){
+  if(idE===1)
   {
     this.objS1 = obj;
   }
@@ -23,6 +23,9 @@ Router.prototype.SetSuiv = function(obj){
   {
     this.objS2 = obj;
   }
+}
+Router.prototype.SetLinkId = function(id){
+  this.linkID=id;
 }
 
 Router.prototype.ProductArrive = function(ball){
