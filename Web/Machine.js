@@ -12,10 +12,10 @@ function Machine(ID,posX,posY,capacite,objS,linkID){
 }
 
 Machine.prototype.draw = function() {
-  ctx.fillRect(this.x, this.y, 30, 50);
-  ctx.fillRect(this.x-20, this.y+40, 20, 10);
-  ctx.fillText(this.nbBall+"/"+this.capacite, this.x,this.y-5);
-  ctx.fillText(this.nbStock, this.x-15,this.y+60);
+  ctx.fillRect(this.x, this.y-50, 30, 50);
+  ctx.fillRect(this.x-20, this.y-10, 20, 10);
+  ctx.fillText(this.nbBall+"/"+this.capacite, this.x,this.y-55);
+  ctx.fillText(this.nbStock, this.x-15,this.y+10);
   this.checkStock();
 }
 Machine.prototype.SetSuiv = function(obj){
@@ -53,7 +53,7 @@ Machine.prototype.checkStock= function()
     this.nbStock-=1;
   }
 }
-Machine.prototype.sortir= function(tabBall)
+Machine.prototype.sortir= function()
 {
   if(this.objS!=null)
   {

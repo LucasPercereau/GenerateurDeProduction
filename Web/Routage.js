@@ -10,9 +10,9 @@ function Router(ID,posX,posY,dispersion,objS1,objS2,linkID){
 }
 
 Router.prototype.draw = function() {
-  ctx.fillRect(this.x, this.y, 20, 70);
-  ctx.fillRect(this.x-20, this.y+25, 30, 15);
-  ctx.fillText("["+this.dispersion+"]", this.x+25,this.y+36);
+  ctx.fillRect(this.x, this.y-40, 20, 70);
+  ctx.fillRect(this.x-20, this.y-15, 30, 15);
+  ctx.fillText("["+this.dispersion+"]", this.x+25,this.y-4);
 }
 Router.prototype.SetSuiv = function(obj,idE){
   if(idE===1)

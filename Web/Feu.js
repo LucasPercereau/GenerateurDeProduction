@@ -17,7 +17,7 @@ Feu.prototype.draw = function() {
   //
   if(this.bool === "V") {this.drawFeu("green");}
   if(this.bool === "R") {this.drawFeu("red");} 
-  ctx.fillText(this.cpt, this.x+7,this.y-25);
+  ctx.fillText(this.cpt, this.x+7,this.y-50);
   this.check();
   if(this.doOnce===0) {this.FeuRouge(); this.doOnce=1;}
 }
@@ -25,10 +25,10 @@ Feu.prototype.drawFeu = function(color) {
   ctx.lineWidth='20';
   ctx.strokeStyle=color;
   ctx.beginPath();
-  ctx.moveTo(this.x+10,this.y-20);
-  ctx.lineTo(this.x+10,this.y+20);
+  ctx.moveTo(this.x+10,this.y-45);
+  ctx.lineTo(this.x+10,this.y-5);
   ctx.stroke();
-  ctx.fillRect(this.x+5, this.y+20, 10, 20);
+  ctx.fillRect(this.x+5, this.y-5, 10, 20);
 }
 Feu.prototype.SetSuiv = function(obj){
   this.objS = obj;
@@ -54,12 +54,14 @@ Feu.prototype.FeuRouge = function() {
 Feu.prototype.check = function() {
   if(this.bool === "V" && this.cpt>0)
   {
+    pause = true;
     for(i=0;i<this.cpt;i++)
     {
       this.sortir(this.buffer[0]);
       this.buffer.shift();
       this.cpt--;
     }    
+    pause = false;
   }
 }
 

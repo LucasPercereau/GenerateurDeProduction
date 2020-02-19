@@ -13,11 +13,11 @@ function Mux(ID,posX,posY,sequence,objS,linkID){
 }
 
 Mux.prototype.draw = function() {
-  ctx.fillRect(this.x, this.y, 20, 70);
-  ctx.fillRect(this.x+5, this.y+25, 30, 15);
-  ctx.fillText(this.nbStock1, this.x-15,this.y+10);
-  ctx.fillText(this.nbStock2, this.x-15,this.y+65);
-  ctx.fillText("["+this.sequence+"]", this.x-50,this.y+36);
+  ctx.fillRect(this.x, this.y-40, 20, 70);
+  ctx.fillRect(this.x+5, this.y-15, 30, 15);
+  ctx.fillText(this.nbStock1, this.x-15,this.y-30);
+  ctx.fillText(this.nbStock2, this.x-15,this.y+25);
+  ctx.fillText("["+this.sequence+"]", this.x-50,this.y-4);
   this.check();
 }
 Mux.prototype.SetSuiv = function(obj){

@@ -22,6 +22,7 @@ UnBatch.prototype.ProductArrive= function(ball)
 {
   if(this.objS!=null)
   {
+    pause = true;
     for(i=0;i<this.tailleLot;i++)
     {
       if(this.objS instanceof Match)
@@ -35,6 +36,7 @@ UnBatch.prototype.ProductArrive= function(ball)
       {
         this.objS.ProductArrive(ball);
       }                 
-    }    
+    }
+    pause= false;    
   }
 }
