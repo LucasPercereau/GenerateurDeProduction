@@ -17,6 +17,7 @@ Feu.prototype.draw = function() {
   //
   if(this.bool === "V") {this.drawFeu("green");}
   if(this.bool === "R") {this.drawFeu("red");} 
+  ctx.fillStyle = 'blue';
   ctx.fillText(this.cpt, this.x+7,this.y-50);
   this.check();
   if(this.doOnce===0) {this.FeuRouge(); this.doOnce=1;}
@@ -37,9 +38,20 @@ Feu.prototype.SetLinkId = function(id){
   this.linkID=id;
 }
 
-Feu.prototype.ProductArrive = function(ball) {
-  this.buffer.push(ball);
-  this.cpt++;
+Feu.prototype.ProductArrive = function(ressource) {
+  if(ressource instanceof Paquet)
+  {
+    for(i=0;i<ressource.nbRessources;i++)
+    {
+      this.buffer.push(new Ressource(this.objS.x,this.objS.y));
+      this.cpt++; 
+    }
+  }
+  else
+  {
+    this.buffer.push(ressource);
+    this.cpt++;   
+  } 
 }
 
 Feu.prototype.FeuVert = function() {
@@ -54,31 +66,27 @@ Feu.prototype.FeuRouge = function() {
 Feu.prototype.check = function() {
   if(this.bool === "V" && this.cpt>0)
   {
-    pause = true;
+    this.sortir(this.cpt);    
+    
     for(i=0;i<this.cpt;i++)
-    {
-      this.sortir(this.buffer[0]);
+    {      
       this.buffer.shift();
-      this.cpt--;
-    }    
-    pause = false;
+    }  
+    this.cpt=0;
   }
 }
 
-Feu.prototype.sortir= function(ball)
+Feu.prototype.sortir= function(cpt)
 {
   if(this.objS!=null)
-  {
-    if(this.objS instanceof Match)
+  { 
+    if(cpt===1)
     {
-      this.objS.ProductArrive(ball,this.linkID);
-    }else if(this.objS instanceof Mux)
-    {
-      this.objS.ProductArrive(ball,this.linkID);
+      this.objS.ProductArrive(new Ressource(this.objS.x,this.objS.y),this.linkID);
     }
     else
     {
-      this.objS.ProductArrive(ball);
-    }                 
-  }   
+      this.objS.ProductArrive(new Paquet(this.objS.x,this.objS.y,cpt),this.linkID);       
+    }             
+  }
 }

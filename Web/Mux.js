@@ -13,6 +13,7 @@ function Mux(ID,posX,posY,sequence,objS,linkID){
 }
 
 Mux.prototype.draw = function() {
+  ctx.fillStyle = 'blue';
   ctx.fillRect(this.x, this.y-40, 20, 70);
   ctx.fillRect(this.x+5, this.y-15, 30, 15);
   ctx.fillText(this.nbStock1, this.x-15,this.y-30);
@@ -27,22 +28,41 @@ Mux.prototype.SetLinkId = function(id){
   this.linkID=id;
 }
 
-Mux.prototype.ProductArrive = function(ball,id){  
+Mux.prototype.ProductArrive = function(ressource,id){  
+  if(ressource instanceof Paquet)
+  {
+    for(i=0;i<ressource.nbRessources;i++)
+    {
+      if(id==1) 
+      {    
+        this.buffer1.push(new Ressource(this.objS.x,this.objS.y));
+        this.nbStock1 +=1;
+      }
+      if(id==2) 
+      {    
+        this.buffer2.push(new Ressource(this.objS.x,this.objS.y));
+        this.nbStock2 +=1;
+      }
+    }
+  }
+  else
+  {
+    if(id==1) 
+    {    
+      this.buffer1.push(ressource);
+      this.nbStock1 +=1;
+    }
+    if(id==2) 
+    {    
+      this.buffer2.push(ressource);
+      this.nbStock2 +=1;
+    }
+  }
   
-  if(id==1) 
-  {    
-    this.buffer1.push(ball);
-    this.nbStock1 +=1;
-  }
-  if(id==2) 
-  {    
-    this.buffer2.push(ball);
-    this.nbStock2 +=1;
-  }
   this.check();
 }
 
-Mux.prototype.check= function(ball)
+Mux.prototype.check= function(Ressource)
 {
   if(this.sequence[this.compteur%this.sequence.length] ===0){
     if(this.nbStock1 > 0)
@@ -63,20 +83,10 @@ Mux.prototype.check= function(ball)
     }
   }
 }
-Mux.prototype.sortir= function(ball)
+Mux.prototype.sortir= function(ressource)
 {
   if(this.objS!=null)
-  {
-    if(this.objS instanceof Match)
-    {
-      this.objS.ProductArrive(ball,this.linkID);
-    }else if(this.objS instanceof Mux)
-    {
-      this.objS.ProductArrive(ball,this.linkID);
-    }
-    else
-    {
-      this.objS.ProductArrive(ball);
-    }                 
+  {   
+    this.objS.ProductArrive(ressource,this.linkID);               
   }
 }

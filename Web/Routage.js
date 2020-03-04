@@ -10,6 +10,7 @@ function Router(ID,posX,posY,dispersion,objS1,objS2,linkID){
 }
 
 Router.prototype.draw = function() {
+  ctx.fillStyle = 'blue';
   ctx.fillRect(this.x, this.y-40, 20, 70);
   ctx.fillRect(this.x-20, this.y-15, 30, 15);
   ctx.fillText("["+this.dispersion+"]", this.x+25,this.y-4);
@@ -28,41 +29,31 @@ Router.prototype.SetLinkId = function(id){
   this.linkID=id;
 }
 
-Router.prototype.ProductArrive = function(ball){
-	this.addToMachine(ball);
+Router.prototype.ProductArrive = function(ressource){
+	if(ressource instanceof Paquet)
+  {
+    for(i=0;i<ressource.nbRessources;i++)
+    {
+      this.addToMachine(new Ressource(this.x,this.y)); 
+    }
+  }
+  else
+  {
+    this.addToMachine(ressource);  
+  } 
 }
 
-Router.prototype.addToMachine = function(ball){  //obligé de passe addToMachine 
+Router.prototype.addToMachine = function(ressource){  //obligé de passe addToMachine 
 	if(this.dispersion[this.compteur%this.dispersion.length] ===0){
 		if(this.objS1!=null)
-    {
-      if(this.objS1 instanceof Match)
-      {
-        this.objS1.ProductArrive(ball,1);
-      }else if(this.objS1 instanceof Mux)
-      {
-        this.objS1.ProductArrive(ball,1);
-      }
-      else
-      {
-        this.objS1.ProductArrive(ball);
-      }                 
+    {     
+        this.objS1.ProductArrive(ressource,this.linkID);               
     }
 	}
 	else if (this.dispersion[this.compteur%this.dispersion.length] ===1){
 		if(this.objS2!=null)
-    {
-      if(this.objS2 instanceof Match)
-      {
-        this.objS2.ProductArrive(ball,this.linkID);
-      }else if(this.objS2 instanceof Mux)
-      {
-        this.objS2.ProductArrive(ball,this.linkID);
-      }
-      else
-      {
-        this.objS2.ProductArrive(ball);
-      }                 
+    {     
+      this.objS2.ProductArrive(ressource,this.linkID);                     
     }
 	}
 	this.compteur++;

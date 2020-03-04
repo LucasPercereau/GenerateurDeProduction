@@ -10,6 +10,7 @@ function Batch(ID,posX,posY,tailleLot,objS,linkID){
 }
 
 Batch.prototype.draw = function() {
+  ctx.fillStyle = 'blue';
   ctx.fillRect(this.x, this.y, 30, 50);
   ctx.fillText(this.nbStock+" / "+this.tailleLot, this.x+5,this.y-10);
 }
@@ -24,36 +25,38 @@ Batch.prototype.check= function()
 {
   if(this.nbStock>=this.tailleLot)
   {
-    this.sortir(this.tabStock[0]);
+    this.sortir();
   }
 }
 
 
-Batch.prototype.ProductArrive= function(ball)
+Batch.prototype.ProductArrive= function(ressource)
 {
-  this.tabStock.push(ball);
-  this.nbStock+=1;
+  if(ressource instanceof Paquet)
+  {
+    for(i=0;i<ressource.nbRessources;i++)
+    {
+      this.tabStock.push(new Ressource(this.objS.x,this.objS.y));
+      this.nbStock+=1;
+    }
+  }
+  else
+  {
+    this.tabStock.push(ressource);
+    this.nbStock+=1;   
+  } 
   this.check();
 }
-Batch.prototype.sortir= function(ball)
+Batch.prototype.sortir= function()
 {
   if(this.objS!=null)
   {
-    if(this.objS instanceof Match)
-    {
-      this.objS.ProductArrive(ball,this.linkID);
-    }else if(this.objS instanceof Mux)
-    {
-      this.objS.ProductArrive(ball,this.linkID);
-    }
-    else
-    {
-      this.objS.ProductArrive(ball);
-    }                 
+                           
+    this.objS.ProductArrive(new Paquet(this.objS.x,this.objS.y,this.tailleLot),this.linkID);
+    this.nbStock-=this.tailleLot;
     for(i=0;i<this.tailleLot;i++)
     {
-      this.tabStock.shift();
-       this.nbStock-=1;
+      this.tabStock.shift();      
     }
   }
 }

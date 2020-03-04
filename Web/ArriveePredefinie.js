@@ -43,30 +43,23 @@ ArriveePredefinie.prototype.StartSequence = function(){
     var t=0;
   }
   
-  setTimeout(this.CreateBall.bind(this),this.Sequence[this.seqID]*1000-t);
+  setTimeout(this.CreateRessource.bind(this),this.Sequence[this.seqID]*1000-t);
 }
   
-ArriveePredefinie.prototype.CreateBall = function()
+ArriveePredefinie.prototype.CreateRessource = function()
 {
   if(this.objS!=null)
   {
-    pause = true;
-    for(i=0;i<this.nbPaquets;i++)
+    if(this.nbPaquets==1)
     {
-      if(this.objS instanceof Match)
-      {
-        this.objS.ProductArrive(new ball(this.objS.x,this.objS.y,3,0,10),this.linkID);
-      }else if(this.objS instanceof Mux)
-      {
-        this.objS.ProductArrive(new ball(this.objS.x,this.objS.y,3,0,10),this.linkID);
-      }
-      else
-      {
-        this.objS.ProductArrive(new ball(this.objS.x,this.objS.y,3,0,10));
-      }                 
+      this.objS.ProductArrive(new Ressource(this.objS.x,this.objS.y),this.linkID);
     }
-    pause = false;    
+    else
+    {
+      this.objS.ProductArrive(new Paquet(this.objS.x,this.objS.y,this.nbPaquets),this.linkID);       
+    }
   }
+
   this.seqID+=1;
   if(this.seqID<this.Sequence.length)
   {

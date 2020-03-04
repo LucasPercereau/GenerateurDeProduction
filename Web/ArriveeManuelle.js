@@ -9,13 +9,14 @@ function ArriveeManuelle(ID,posX,posY,firstElement,objS,linkID) {
     var input = document.createElement("input");
     input.type = "button";
     input.value = "Ball";
-    input.setAttribute("onclick", firstElement+".CreateBall();");
+    input.setAttribute("onclick", firstElement+".CreateRessource();");
 
     var body = document.getElementsByTagName("header")[0];
     body.appendChild(input);
 }
 
 ArriveeManuelle.prototype.draw = function(){
+  ctx.fillStyle = 'blue';
   ctx.fillRect(this.x-20, this.y, 30, 10);  
   ctx.fillRect(this.x, this.y-20, 10, 30);
   ctx.fillRect(this.x-20, this.y-20, 30, 10);
@@ -28,7 +29,7 @@ ArriveeManuelle.prototype.SetLinkId = function(id){
   this.linkID=id;
 }
   
-ArriveeManuelle.prototype.CreateBall = function()
+ArriveeManuelle.prototype.CreateRessource = function()
 {
-  this.objS.ProductArrive(new ball(this.objS.x,this.objS.y,3,0,10));
+  this.objS.ProductArrive(new Paquet(this.objS.x,this.objS.y,4));
 }

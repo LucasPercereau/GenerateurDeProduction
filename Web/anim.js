@@ -51,7 +51,7 @@ function init(val)
   GenerateFromJson(); 
 }
 
-function GenerateFromJson(){
+function GenerateFromJson(){ 
 	json.forEach(function(value){
 		const name = value.name;
 		switch (name) {
@@ -119,7 +119,6 @@ function GenerateFromJson(){
 
 function drawCanvas() {
  
-
   	window.requestAnimationFrame(drawCanvas);
 
   	now = Date.now();

@@ -5,17 +5,18 @@ function Convoyeur(ID,posX,posY,posX2,posY2,duree,objS,linkID) {
   this.X2 = posX2;
   this.Y2 = posY2;
   this.duree=duree;
-  this.tabBall=[];
+  this.tabRessource=[];
+  this.tabPaquet=[];
   this.objS = objS;
   this.linkID=linkID;
 }
-Convoyeur.prototype.draw = function(color) {
-  this.drawLine(color);
-  this.drawAllBall();
+Convoyeur.prototype.draw = function() {
+  this.drawLine();
+  this.drawAllRessource();
   this.avance();
-  this.checkBall();
+  this.checkRessource();
 }
-Convoyeur.prototype.drawLine = function(color) {
+Convoyeur.prototype.drawLine = function() {
   ctx.lineWidth='8';
   ctx.strokeStyle='green';
   ctx.beginPath();
@@ -33,51 +34,66 @@ Convoyeur.prototype.SetLinkId = function(id){
 Convoyeur.prototype.avance = function()
 {
 	var nb = ((this.X2-this.X1)/this.duree)/60
-	this.tabBall.forEach(function Coord(e){e.x+=nb;});
+	this.tabRessource.forEach(function Coord(e){e.x+=nb;});
+	this.tabPaquet.forEach(function Coord(e){e.x+=nb;});
 }
 
-Convoyeur.prototype.ProductArrive = function(ball){
-	ball.x=this.X1;
-	ball.y=this.Y1-ball.radius/2;
-	this.tabBall.push(ball);
-}
-Convoyeur.prototype.delBall = function()
+Convoyeur.prototype.ProductArrive = function(ressource)
 {
-	this.tabBall.shift();
+	if(ressource instanceof Paquet)
+	{
+	   ressource.x=this.X1;
+	   ressource.y=this.Y1-10;	  
+	   this.tabPaquet.push(ressource); 	  
+	}
+	else
+	{
+	   ressource.x=this.X1;
+	   ressource.y=this.Y1-ressource.radius/2;
+	   this.tabRessource.push(ressource); 
+	} 
 }
-Convoyeur.prototype.checkBall = function()
+Convoyeur.prototype.delRessource = function()
+{
+	this.tabRessource.shift();
+}
+Convoyeur.prototype.delPaquet = function()
+{
+	this.tabPaquet.shift();
+}
+Convoyeur.prototype.checkRessource = function()
 {
 	let m_x = this.X1;
 	let m_largeur = this.X2-this.X1;
 	let suiv = this.objS;
 	let id = this.linkID;
 	var self = this;
-	this.tabBall.forEach(function Coord(e){
+	this.tabRessource.forEach(function Coord(e){
 		if(e.x>=m_x+m_largeur)
 		{
 			if(suiv!=null)
 			{
-				if(suiv instanceof Match)
-				{
-					suiv.ProductArrive(e,id);
-				}
-							
-				if(suiv instanceof Mux)
-				{
-					suiv.ProductArrive(e,id);
-				}else
-				{
-					suiv.ProductArrive(e);
-				}									
+				suiv.ProductArrive(e,id);												
 			}			
-			self.delBall();				
+			self.delRessource();				
+		}
+	});
+	this.tabPaquet.forEach(function Coord(e){
+		if(e.x>=m_x+m_largeur)
+		{
+			if(suiv!=null)
+			{
+				suiv.ProductArrive(e,id);												
+			}			
+			self.delPaquet();				
 		}
 	});
 }
 
-Convoyeur.prototype.drawAllBall = function()
+Convoyeur.prototype.drawAllRessource = function()
 {
-	this.tabBall.forEach(function Coord(e){e.draw();});
+	this.tabRessource.forEach(function Coord(e){e.draw();});
+	this.tabPaquet.forEach(function Coord(e){e.draw();});
 }
 
 

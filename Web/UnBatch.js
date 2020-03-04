@@ -8,6 +8,7 @@ function UnBatch(ID,posX,posY,tailleLot,objS,linkID){
 }
 
 UnBatch.prototype.draw = function() {
+  ctx.fillStyle = 'blue';
   ctx.fillRect(this.x, this.y, 30, 50);
   ctx.fillText("1 > "+this.tailleLot, this.x+5,this.y-10);
 }
@@ -18,25 +19,10 @@ UnBatch.prototype.SetLinkId = function(id){
   this.linkID=id;
 }
 
-UnBatch.prototype.ProductArrive= function(ball)
+UnBatch.prototype.ProductArrive= function(Ressource)
 {
   if(this.objS!=null)
   {
-    pause = true;
-    for(i=0;i<this.tailleLot;i++)
-    {
-      if(this.objS instanceof Match)
-      {
-        this.objS.ProductArrive(ball,this.linkID);
-      }else if(this.objS instanceof Mux)
-      {
-        this.objS.ProductArrive(ball,this.linkID);
-      }
-      else
-      {
-        this.objS.ProductArrive(ball);
-      }                 
-    }
-    pause= false;    
+    this.objS.ProductArrive(new Paquet(this.objS.x,this.objS.y,this.tailleLot),this.linkID);  
   }
 }

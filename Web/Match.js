@@ -14,6 +14,7 @@ function Match(ID,posX,posY,objS,linkID){
 }
 
 Match.prototype.draw = function() {
+  ctx.fillStyle = 'blue';
   ctx.fillRect(this.x, this.y, 30, 50);
   ctx.fillRect(this.x-20, this.y+20, 20, 10);
   ctx.fillText(this.nbStock1, this.x-15,this.y+10);
@@ -49,54 +50,69 @@ Match.prototype.check= function()
   }
 }
 
-Match.prototype.addBuff= function(ball,id)
+Match.prototype.addBuff= function(Ressource,id)
 {
   if(id==1) 
   {    
-    this.Buffer1.push(ball);
+    this.Buffer1.push(Ressource);
     this.nbStock1 +=1;
   }
   if(id==2) 
   {    
-    this.Buffer2.push(ball);
+    this.Buffer2.push(Ressource);
     this.nbStock2 +=1;
   }
 }
-Match.prototype.ProductArrive= function(ball,id)
-{
-
-  if(id===1) 
+Match.prototype.ProductArrive= function(Ressource,id)
+{ 
+  if(ressource instanceof Paquet)
   {
-    if(this.entre1==null)
+    for(i=0;i<ressource.nbRessources;i++)
     {
-      this.entre1 = ball;    
+      if(id===1) 
+      {
+        if(this.entre1==null)
+        {
+          this.entre1 = Ressource;    
+        }
+      else {this.addBuff(Ressource,1);}  
+      }
+      if(id===2) 
+      {
+        if(this.entre2==null)
+        {
+          this.entre2 = Ressource;    
+        }
+      else {this.addBuff(Ressource,2);}   
+      }
     }
-    else {this.addBuff(ball,1);}  
   }
-  if(id===2) 
+  else
   {
-    if(this.entre2==null)
+    if(id===1) 
     {
-      this.entre2 = ball;    
+      if(this.entre1==null)
+      {
+        this.entre1 = Ressource;    
+      }
+      else {this.addBuff(Ressource,1);}  
     }
-    else {this.addBuff(ball,2);}   
-  }
+    if(id===2) 
+    {
+      if(this.entre2==null)
+      {
+        this.entre2 = Ressource;    
+      }
+      else {this.addBuff(Ressource,2);}   
+    }
+  } 
 }
+
 Match.prototype.sortir= function()
 {
   if(this.objS!=null)
   {
-    if(this.objS instanceof Match)
-    {
-      this.objS.ProductArrive(new ball(10,10,3,0,10),this.linkID);
-    }else if(this.objS instanceof Mux)
-    {
-      this.objS.ProductArrive(new ball(10,10,3,0,10),this.linkID);
-    }
-    else
-    {
-      this.objS.ProductArrive(new ball(10,10,3,0,10));
-    }                 
+    this.objS.ProductArrive(new Ressource(this.objS.x,this.objS.y),this.linkID);                
   }
   this.entre1=null;
   this.entre2=null;
