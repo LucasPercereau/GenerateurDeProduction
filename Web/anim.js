@@ -86,7 +86,8 @@ function GenerateFromJson(){
 			tabFeu[tabFeu.length]=new Feu(value.id,value.X,value.Y,2000,3000,null,1); 
 			break;
 		case 'Convoyeur':
-			tabConvoyeur[tabConvoyeur.length]=new Convoyeur(value.id,value.X-100,value.Y,value.X+100,value.Y,2,null,1); 
+			tabConvoyeur[tabConvoyeur.length]=new Convoyeur(value.id,value.X,value.Y,value.segments,7,null,1);
+			 
 			break;	
 		case 'WTEG':
 			break;
