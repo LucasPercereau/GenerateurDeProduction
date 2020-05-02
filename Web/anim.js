@@ -125,6 +125,7 @@ function drawCanvas() {
   	now = Date.now();
     elapsed = now - then;
 
+    //60 FPS constant//
     if (elapsed > fpsInterval && !pause) {
         then = now - (elapsed % fpsInterval);
 
@@ -132,3 +133,4 @@ function drawCanvas() {
   		tabElem.forEach(element => element.forEach(element => element.draw()));
     }
 }
+
