@@ -48,7 +48,7 @@ Convoyeur.prototype.avance = function()
 			var point1=null;
 			var point2=null;
 			var coeff=null;
-			for (j = 0; j < this.points.length; j++) 
+			for (j = 1; j < this.points.length; j++) 
 			{
 				if(this.tabRessource[i].x<=this.points[j][0])
 				{
@@ -73,7 +73,7 @@ Convoyeur.prototype.avance = function()
 			var point1=null;
 			var point2=null;
 			var coeff=null;
-			for (j = 0; j < this.points.length; j++) 
+			for (j = 1; j < this.points.length; j++) 
 			{
 				if(this.tabPaquet[i].x<=this.points[j][0])
 				{
@@ -94,14 +94,14 @@ Convoyeur.prototype.ProductArrive = function(ressource)
 {
 	if(ressource instanceof Paquet)
 	{
-	   ressource.x=this.X+2;	
-	   ressource.y=this.Y-10;	  
+	   ressource.x=this.points[0][0]+2;	
+	   ressource.y=this.points[0][1]-10;	  
 	   this.tabPaquet.push(ressource); 	  
 	}
 	else
 	{
-	   ressource.x=this.X+2;
-	   ressource.y=this.Y-ressource.radius/2;
+	   ressource.x=this.points[0][0]+2;
+	   ressource.y=this.points[0][1]-ressource.radius/2;
 	   this.tabRessource.push(ressource); 
 	} 
 }

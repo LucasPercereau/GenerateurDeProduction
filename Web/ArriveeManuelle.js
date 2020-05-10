@@ -31,5 +31,5 @@ ArriveeManuelle.prototype.SetLinkId = function(id){
   
 ArriveeManuelle.prototype.CreateRessource = function()
 {
-  this.objS.ProductArrive(new Paquet(this.objS.x,this.objS.y,4));
+  this.objS.ProductArrive(new Ressource(this.objS.x,this.objS.y));
 }
